@@ -1,0 +1,11 @@
+{
+  "rewrites": [
+    { "source": "/painel/admin", "destination": "/painel/admin/index.html" },
+    { "source": "/painel/admin/", "destination": "/painel/admin/index.html" },
+    { "source": "/painel", "destination": "/painel/index.html" },
+    { "source": "/painel/", "destination": "/painel/index.html" },
+    { "source": "/links", "destination": "/links/index.html" },
+    { "source": "/links/", "destination": "/links/index.html" },
+    { "source": "/(.*)", "destination": "/$1" }
+  ]
+}

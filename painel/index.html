@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo | Pontes Miranda Advogados</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="admin.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" type="image/png" href="../assets/favicon_preto.png">
+</head>
+<body>
+
+    <div class="admin-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="sidebar-brand">
+                <img src="../assets/logo_prata.png" alt="Pontes Miranda" class="sidebar-logo">
+                <span class="sidebar-badge">Painel</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Navegação Principal</div>
+                
+                <a href="#dashboard" class="sidebar-link active" id="navDashboard" data-view="dashboard">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#links" class="sidebar-link" id="navLinks" data-view="links">
+                    <i data-lucide="link-2"></i>
+                    <span>Página de Links</span>
+                </a>
+
+                <a href="#tags" class="sidebar-link" id="navTags" data-view="tags">
+                    <i data-lucide="tags"></i>
+                    <span>Tags &amp; Scripts</span>
+                </a>
+
+                <a href="#usuarios" class="sidebar-link" id="navUsers" data-view="usuarios">
+                    <i data-lucide="users"></i>
+                    <span>Usuários &amp; Acessos</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="/" target="_blank" class="site-preview-btn">
+                    <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                    <span>Ver Site Principal</span>
+                </a>
+                <a href="/links" target="_blank" class="site-preview-btn" style="margin-top: 4px;">
+                    <i data-lucide="smartphone" style="width: 16px; height: 16px;"></i>
+                    <span>Ver /links (Bio)</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <div class="admin-main">
+            <!-- Header -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" id="mobileSidebarToggle" aria-label="Abrir Menu Lateral">
+                        <i data-lucide="menu"></i>
+                    </button>
+
+                    <div class="page-breadcrumb">
+                        <span>Painel</span>
+                        <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+                        <span class="current-page" id="headerTitle">Dashboard</span>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <div class="user-profile-badge">
+                        <div class="user-avatar" id="userAvatar">PM</div>
+                        <span class="user-email-text" id="userEmail">Carregando...</span>
+                    </div>
+
+                    <button class="logout-icon-btn" id="logoutBtn" title="Encerrar Sessão" aria-label="Logout">
+                        <i data-lucide="log-out" style="width: 18px; height: 18px;"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dynamic Views Container -->
+            <main class="admin-content">
+                
+                <!-- ================= VIEW 1: DASHBOARD ================= -->
+                <section class="view-panel active" id="viewDashboard">
+                    <!-- KPI Cards Grid -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <span class="stat-title">Cliques Totais (/links)</span>
+                                <div class="stat-icon emerald">
+                                    <i data-lucide="mouse-pointer-click"></i>
+                                </div>
+                            </div>
+                            <div class="stat-value" id="dashTotalClicks">0</div>
+                            <div class="stat-desc" id="dashActiveLinksDesc">0 botões ativos</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <span class="stat-title">Botões de Links</span>
+                                <div class="stat-icon blue">
+                                    <i data-lucide="link-2"></i>
+                                </div>
+                            </div>
+                            <div class="stat-value" id="dashTotalLinks">0</div>
+                            <div class="stat-desc">Cadastrados na página /links</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <span class="stat-title">Tags &amp; Scripts</span>
+                                <div class="stat-icon amber">
+                                    <i data-lucide="code-2"></i>
+                                </div>
+                            </div>
+                            <div class="stat-value" id="dashTotalTags">0</div>
+                            <div class="stat-desc" id="dashActiveTags">0 scripts ativos</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <span class="stat-title">Usuários do Painel</span>
+                                <div class="stat-icon emerald">
+                                    <i data-lucide="users"></i>
+                                </div>
+                            </div>
+                            <div class="stat-value" id="dashTotalUsers">1</div>
+                            <div class="stat-desc">Contas administrativas ativas</div>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard Columns Grid -->
+                    <div class="dashboard-sections-grid">
+                        <!-- Quick Actions for Links -->
+                        <div class="section-box">
+                            <div class="section-box-header">
+                                <h2 class="section-box-title">Gestão de Links (/links)</h2>
+                            </div>
+                            <p style="font-size: 0.9rem; color: var(--adm-text-secondary); margin-bottom: 20px;">
+                                Crie e organize os botões de atalho da sua Bio (WhatsApp, E-mail, Instagram, Consultoria) e acompanhe o número de cliques em tempo real.
+                            </p>
+
+                            <div class="quick-action-box">
+                                <div>
+                                    <div style="font-weight: 600; color: var(--adm-text-primary); font-size: 0.95rem; margin-bottom: 4px;">Adicionar Novo Botão</div>
+                                    <div style="font-size: 0.8rem; color: var(--adm-text-muted);">Insira um novo link personalizado na sua página de bio</div>
+                                </div>
+                                <button class="btn btn-primary" id="dashQuickAddLinkBtn">
+                                    <i data-lucide="plus" style="width: 16px; height: 16px;"></i>
+                                    <span>Novo Link</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- System Logs / History -->
+                        <div class="section-box">
+                            <div class="section-box-header">
+                                <h2 class="section-box-title">Atividades &amp; Logs</h2>
+                            </div>
+
+                            <div class="activity-list" id="activityList">
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i data-lucide="shield-check" style="width: 16px; height: 16px;"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <div class="activity-text">Sessão administrativa autenticada com sucesso.</div>
+                                        <div class="activity-time" id="logLoginTime">Agora mesmo</div>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i data-lucide="database" style="width: 16px; height: 16px;"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <div class="activity-text">Tabelas e RPCs operacionais no Supabase (admin_profiles, page_links, site_scripts).</div>
+                                        <div class="activity-time">Controle de acessos granular ativo</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= VIEW 2: PÁGINA DE LINKS ================= -->
+                <section class="view-panel" id="viewLinks">
+                    <div class="module-toolbar">
+                        <div class="toolbar-filters">
+                            <div class="search-input-wrap">
+                                <i data-lucide="search"></i>
+                                <input type="text" id="linkSearchInput" class="search-input" placeholder="Buscar botão por título ou URL...">
+                            </div>
+
+                            <a href="/links" target="_blank" class="btn btn-secondary" style="font-size: 0.86rem; padding: 10px 14px; white-space: nowrap;">
+                                <i data-lucide="external-link" style="width: 15px; height: 15px;"></i>
+                                <span>Ver Página /links</span>
+                            </a>
+                        </div>
+
+                        <button class="btn btn-primary" id="openAddLinkModalBtn">
+                            <i data-lucide="plus" style="width: 16px; height: 16px;"></i>
+                            <span>Adicionar Novo Botão</span>
+                        </button>
+                    </div>
+
+                    <div class="table-card">
+                        <table class="adm-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 70px; text-align: center;">Ordem</th>
+                                    <th>Botão / Destino</th>
+                                    <th>Cliques</th>
+                                    <th>Destaque</th>
+                                    <th>Status</th>
+                                    <th style="text-align: right;">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="linksTableBody">
+                                <tr>
+                                    <td colspan="6" style="text-align: center; padding: 40px;">
+                                        <span class="spinner"></span>
+                                        <div style="margin-top: 10px; color: var(--adm-text-muted);">Carregando botões de links...</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- ================= VIEW 3: TAGS & SCRIPTS ================= -->
+                <section class="view-panel" id="viewTags">
+                    <div class="module-toolbar">
+                        <div class="toolbar-filters">
+                            <div class="search-input-wrap">
+                                <i data-lucide="search"></i>
+                                <input type="text" id="tagSearchInput" class="search-input" placeholder="Buscar tag por nome ou provedor...">
+                            </div>
+
+                            <select id="locationFilter" class="filter-select">
+                                <option value="all">Todos os Locais</option>
+                                <option value="head">Apenas &lt;head&gt;</option>
+                                <option value="body_start">Apenas Body (Início)</option>
+                                <option value="body_end">Apenas Body (Fim)</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-primary" id="openAddTagModalBtn">
+                            <i data-lucide="plus" style="width: 16px; height: 16px;"></i>
+                            <span>Adicionar Nova Tag</span>
+                        </button>
+                    </div>
+
+                    <div class="table-card">
+                        <table class="adm-table">
+                            <thead>
+                                <tr>
+                                    <th>Tag / Provedor</th>
+                                    <th>Posição</th>
+                                    <th>Páginas</th>
+                                    <th>Status</th>
+                                    <th style="text-align: right;">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tagsTableBody">
+                                <tr>
+                                    <td colspan="5" style="text-align: center; padding: 40px;">
+                                        <span class="spinner"></span>
+                                        <div style="margin-top: 10px; color: var(--adm-text-muted);">Carregando tags cadastradas...</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- ================= VIEW 4: USUÁRIOS & PERMISSÕES ================= -->
+                <section class="view-panel" id="viewUsers">
+                    <div class="module-toolbar">
+                        <div class="toolbar-filters">
+                            <div class="search-input-wrap">
+                                <i data-lucide="search"></i>
+                                <input type="text" id="userSearchInput" class="search-input" placeholder="Buscar usuário por nome ou e-mail...">
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" id="openAddUserModalBtn">
+                            <i data-lucide="user-plus" style="width: 16px; height: 16px;"></i>
+                            <span>Novo Usuário</span>
+                        </button>
+                    </div>
+
+                    <div class="table-card">
+                        <table class="adm-table">
+                            <thead>
+                                <tr>
+                                    <th>Usuário</th>
+                                    <th>Cargo</th>
+                                    <th>Menus Permitidos</th>
+                                    <th>Status</th>
+                                    <th style="text-align: right;">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTableBody">
+                                <tr>
+                                    <td colspan="5" style="text-align: center; padding: 40px;">
+                                        <span class="spinner"></span>
+                                        <div style="margin-top: 10px; color: var(--adm-text-muted);">Carregando usuários do painel...</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: CRIAR / EDITAR USUÁRIO ================= -->
+    <div class="modal-backdrop" id="userModal">
+        <div class="modal-box" style="max-width: 620px;">
+            <div class="modal-header">
+                <h3 class="modal-title" id="userModalTitle">Cadastrar Novo Usuário</h3>
+                <button class="modal-close-btn" id="closeUserModalBtn" aria-label="Fechar Modal">
+                    <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+                </button>
+            </div>
+
+            <form id="userForm">
+                <input type="hidden" id="userId">
+
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="userName" class="form-label">Nome Completo</label>
+                            <input type="text" id="userName" class="form-control" placeholder="Ex: Dra. Jéssica Miranda" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userEmailInput" class="form-label">E-mail de Acesso</label>
+                            <input type="email" id="userEmailInput" class="form-control" placeholder="usuario@pontesmiranda.adv.br" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                            <label for="userPasswordInput" class="form-label" style="margin-bottom: 0;">Senha de Acesso</label>
+                            <button type="button" id="generatePasswordBtn" style="background: transparent; border: none; color: var(--adm-silver); font-size: 0.8rem; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;">
+                                <i data-lucide="sparkles" style="width: 13px; height: 13px;"></i> Gerar Senha Forte
+                            </button>
+                        </div>
+                        <div style="position: relative;">
+                            <input 
+                                type="password" 
+                                id="userPasswordInput" 
+                                class="form-control" 
+                                placeholder="••••••••••••" 
+                                style="padding-right: 42px;"
+                            >
+                            <button 
+                                type="button" 
+                                id="toggleUserPasswordBtn" 
+                                aria-label="Exibir ou ocultar senha"
+                                style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: transparent; border: none; color: var(--adm-text-muted); cursor: pointer; display: flex; align-items: center;"
+                            >
+                                <i data-lucide="eye" style="width: 18px; height: 18px;"></i>
+                            </button>
+                        </div>
+                        <div class="form-hint" id="userPasswordHint">Mínimo de 6 caracteres. O usuário será auto-confirmado instantaneamente.</div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="userRole" class="form-label">Cargo / Nível de Acesso</label>
+                            <select id="userRole" class="form-control">
+                                <option value="editor">Editor (Acesso restrito aos menus selecionados)</option>
+                                <option value="admin">Administrador (Gerenciamento geral)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" style="display: flex; flex-direction: column; justify-content: center;">
+                            <label class="form-label">Status da Conta</label>
+                            <div style="display: flex; align-items: center; gap: 10px; margin-top: 4px;">
+                                <label class="switch">
+                                    <input type="checkbox" id="userIsActive" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span style="font-size: 0.85rem; color: var(--adm-text-secondary);">Conta Habilitada</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Menu Permissions Checkboxes -->
+                    <div class="form-group" style="margin-top: 10px;">
+                        <label class="form-label" style="margin-bottom: 12px;">Menus Permitidos para este Usuário</label>
+                        <div class="menu-permissions-grid">
+                            <label class="menu-perm-card">
+                                <input type="checkbox" id="perm_dashboard" value="dashboard" checked>
+                                <div class="menu-perm-info">
+                                    <div class="menu-perm-title">
+                                        <i data-lucide="layout-dashboard" style="width: 16px; height: 16px;"></i>
+                                        <span>Dashboard</span>
+                                    </div>
+                                    <div class="menu-perm-desc">Visão geral e métricas do site</div>
+                                </div>
+                            </label>
+
+                            <label class="menu-perm-card">
+                                <input type="checkbox" id="perm_links" value="links" checked>
+                                <div class="menu-perm-info">
+                                    <div class="menu-perm-title">
+                                        <i data-lucide="link-2" style="width: 16px; height: 16px;"></i>
+                                        <span>Página de Links</span>
+                                    </div>
+                                    <div class="menu-perm-desc">Gerenciador da Bio (/links) e cliques</div>
+                                </div>
+                            </label>
+
+                            <label class="menu-perm-card">
+                                <input type="checkbox" id="perm_tags" value="tags" checked>
+                                <div class="menu-perm-info">
+                                    <div class="menu-perm-title">
+                                        <i data-lucide="tags" style="width: 16px; height: 16px;"></i>
+                                        <span>Tags &amp; Scripts</span>
+                                    </div>
+                                    <div class="menu-perm-desc">Google Analytics, Meta Pixel, GTM</div>
+                                </div>
+                            </label>
+
+                            <label class="menu-perm-card">
+                                <input type="checkbox" id="perm_usuarios" value="usuarios">
+                                <div class="menu-perm-info">
+                                    <div class="menu-perm-title">
+                                        <i data-lucide="users" style="width: 16px; height: 16px;"></i>
+                                        <span>Usuários &amp; Acessos</span>
+                                    </div>
+                                    <div class="menu-perm-desc">Criar e gerenciar contas do painel</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancelUserBtn">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="saveUserBtn">
+                        <span id="saveUserBtnText">Salvar Usuário</span>
+                        <span id="saveUserBtnSpinner" class="spinner" style="display: none;"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: CONFIRMAR EXCLUSÃO DE USUÁRIO ================= -->
+    <div class="modal-backdrop" id="deleteUserConfirmModal">
+        <div class="modal-box" style="max-width: 440px;">
+            <div class="modal-header">
+                <h3 class="modal-title" style="color: var(--adm-accent-rose);">Excluir Usuário</h3>
+                <button class="modal-close-btn" id="closeDeleteUserModalBtn" aria-label="Fechar Modal">
+                    <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p style="color: var(--adm-text-secondary); font-size: 0.92rem;">
+                    Tem certeza que deseja remover o usuário <strong id="deleteUserEmailText" style="color: var(--adm-text-primary);"></strong>?
+                    <br><br>
+                    O acesso desta pessoa ao painel será revogado imediatamente.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelDeleteUserBtn">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteUserBtn">
+                    <span>Excluir Definitivamente</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: CRIAR / EDITAR LINK ================= -->
+    <div class="modal-backdrop" id="linkModal">
+        <div class="modal-box" style="max-width: 580px;">
+            <div class="modal-header">
+                <h3 class="modal-title" id="linkModalTitle">Cadastrar Novo Botão</h3>
+                <button class="modal-close-btn" id="closeLinkModalBtn" aria-label="Fechar Modal">
+                    <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+                </button>
+            </div>
+
+            <form id="linkForm">
+                <input type="hidden" id="linkId">
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="linkTitle" class="form-label">Título do Botão</label>
+                        <input type="text" id="linkTitle" class="form-control" placeholder="Ex: Falar no WhatsApp com Advogada" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="linkUrl" class="form-label">Link de Destino (URL)</label>
+                        <input type="text" id="linkUrl" class="form-control" placeholder="https://wa.me/5561982258072 ou https://..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="linkIcon" class="form-label">Ícone do Botão</label>
+                        <select id="linkIcon" class="form-control">
+                            <option value="whatsapp">WhatsApp</option>
+                            <option value="instagram">Instagram</option>
+                            <option value="email">E-mail</option>
+                            <option value="map-pin">Localização / Maps</option>
+                            <option value="phone">Telefone</option>
+                            <option value="globe">Site / Web</option>
+                            <option value="file-text">Documento / Artigo</option>
+                            <option value="scale">Balança / Jurídico</option>
+                            <option value="link">Link Padrão</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row" style="margin-top: 10px; padding: 12px 14px; background: var(--adm-bg-main); border: 1px solid var(--adm-border); border-radius: var(--radius-md);">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <div>
+                                <div style="font-weight: 600; font-size: 0.88rem; color: var(--adm-text-primary);">Destaque Visual</div>
+                                <div style="font-size: 0.76rem; color: var(--adm-text-muted);">Brilho sutil no botão</div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="linkIsFeatured">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <div>
+                                <div style="font-weight: 600; font-size: 0.88rem; color: var(--adm-text-primary);">Botão Ativo</div>
+                                <div style="font-size: 0.76rem; color: var(--adm-text-muted);">Exibir na página /links</div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="linkIsActive" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancelLinkBtn">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="saveLinkBtn">
+                        <span id="saveLinkBtnText">Salvar Botão</span>
+                        <span id="saveLinkBtnSpinner" class="spinner" style="display: none;"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: CONFIRMAR EXCLUSÃO DE LINK ================= -->
+    <div class="modal-backdrop" id="deleteLinkConfirmModal">
+        <div class="modal-box" style="max-width: 440px;">
+            <div class="modal-header">
+                <h3 class="modal-title" style="color: var(--adm-accent-rose);">Excluir Botão</h3>
+                <button class="modal-close-btn" id="closeDeleteLinkModalBtn" aria-label="Fechar Modal">
+                    <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p style="color: var(--adm-text-secondary); font-size: 0.92rem;">
+                    Tem certeza que deseja remover o botão <strong id="deleteLinkTitle" style="color: var(--adm-text-primary);"></strong>?
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelDeleteLinkBtn">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteLinkBtn">
+                    <span>Excluir Definitivamente</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: ZERAR CLIQUES ================= -->
+    <div class="modal-backdrop" id="resetClicksModal">
+        <div class="modal-box" style="max-width: 440px;">
+            <div class="modal-header">
+                <h3 class="modal-title" style="color: var(--adm-accent-amber);">Zerar Cliques</h3>
+                <button class="modal-close-btn" id="closeResetClicksModalBtn" aria-label="Fechar Modal">
+                    <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p style="color: var(--adm-text-secondary); font-size: 0.92rem;">
+                    Deseja zerar a contagem de cliques do botão <strong id="resetClicksLinkTitle" style="color: var(--adm-text-primary);"></strong>?
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelResetClicksBtn">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="confirmResetClicksBtn">
+                    <span>Zerar Contador</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: CRIAR / EDITAR TAG ================= -->
+    <div class="modal-backdrop" id="tagModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 class="modal-title" id="tagModalTitle">Cadastrar Nova Tag</h3>
+                <button class="modal-close-btn" id="closeTagModalBtn" aria-label="Fechar Modal">
+                    <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+                </button>
+            </div>
+
+            <form id="tagForm">
+                <input type="hidden" id="tagId">
+
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tagProvider" class="form-label">Tipo / Provedor</label>
+                            <select id="tagProvider" class="form-control">
+                                <option value="custom">Script / HTML Customizado</option>
+                                <option value="ga4">Google Analytics 4 (GA4)</option>
+                                <option value="gtm">Google Tag Manager (Head)</option>
+                                <option value="gtm_body">Google Tag Manager (NoScript Body)</option>
+                                <option value="meta_pixel">Meta Pixel (Facebook)</option>
+                                <option value="hotjar">Hotjar Tracking</option>
+                                <option value="tiktok">TikTok Pixel</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tagName" class="form-label">Nome de Identificação</label>
+                            <input type="text" id="tagName" class="form-control" placeholder="Ex: GA4 Produção" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="presetIdGroup" style="display: none;">
+                        <label for="presetIdInput" class="form-label" id="presetIdLabel">ID do Provedor</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" id="presetIdInput" class="form-control" placeholder="G-XXXXXXXXXX">
+                            <button type="button" id="generatePresetBtn" class="btn btn-secondary" style="flex-shrink: 0;">
+                                <i data-lucide="wand-2" style="width: 16px; height: 16px;"></i>
+                                <span>Gerar Código</span>
+                            </button>
+                        </div>
+                        <div class="form-hint">Digite o ID do pixel ou container para preencher automaticamente o script.</div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tagLocation" class="form-label">Local de Inserção no DOM</label>
+                            <select id="tagLocation" class="form-control" required>
+                                <option value="head">&lt;head&gt; (Recomendado para pixels e analytics)</option>
+                                <option value="body_start">&lt;body&gt; Início (ex: GTM noscript)</option>
+                                <option value="body_end">&lt;body&gt; Fim (ex: widgets, chats)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tagTargetPages" class="form-label">Páginas de Destino</label>
+                            <select id="tagTargetPages" class="form-control">
+                                <option value="all">Todas as páginas (Geral)</option>
+                                <option value="/">Apenas Página Inicial (/)</option>
+                                <option value="/links">Apenas Página de Links (/links)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                            <label for="tagCode" class="form-label" style="margin-bottom: 0;">Código HTML / JavaScript</label>
+                            <span style="font-size: 0.76rem; color: var(--adm-text-muted);">Inclua as tags &lt;script&gt; ou &lt;noscript&gt;</span>
+                        </div>
+                        <textarea id="tagCode" class="form-control code-editor-textarea" placeholder="<script>
+  // Cole aqui o seu código de rastreamento ou pixel
+</script>" required></textarea>
+                    </div>
+
+                    <div class="form-group" style="display: flex; align-items: center; justify-content: space-between; padding-top: 6px; margin-bottom: 0;">
+                        <div>
+                            <div style="font-weight: 600; color: var(--adm-text-primary); font-size: 0.9rem;">Status Inicial</div>
+                            <div style="font-size: 0.78rem; color: var(--adm-text-muted);">Definir se o script começará ativo no site</div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="tagIsActive" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancelTagBtn">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="saveTagBtn">
+                        <span id="saveTagBtnText">Salvar Tag</span>
+                        <span id="saveTagBtnSpinner" class="spinner" style="display: none;"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: VISUALIZAR CÓDIGO ================= -->
+    <div class="modal-backdrop" id="viewCodeModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 class="modal-title" id="viewCodeTitle">Código do Script</h3>
+                <button class="modal-close-btn" id="closeViewCodeBtn" aria-label="Fechar Modal">
+                    <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="code-preview-block" id="viewCodeContent"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="copyCodeBtn">
+                    <i data-lucide="copy" style="width: 16px; height: 16px;"></i>
+                    <span>Copiar Código</span>
+                </button>
+                <button type="button" class="btn btn-primary" id="closeViewCodeFooterBtn">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: CONFIRMAÇÃO DE EXCLUSÃO DE TAG ================= -->
+    <div class="modal-backdrop" id="deleteConfirmModal">
+        <div class="modal-box" style="max-width: 440px;">
+            <div class="modal-header">
+                <h3 class="modal-title" style="color: var(--adm-accent-rose);">Excluir Tag</h3>
+                <button class="modal-close-btn" id="closeDeleteModalBtn" aria-label="Fechar Modal">
+                    <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p style="color: var(--adm-text-secondary); font-size: 0.92rem;">
+                    Tem certeza que deseja remover a tag <strong id="deleteTagName" style="color: var(--adm-text-primary);"></strong>?
+                    <br><br>
+                    Esta ação removerá o script do site imediatamente e não poderá ser desfeita.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelDeleteBtn">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteBtn">
+                    <span>Excluir Definitivamente</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>

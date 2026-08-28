@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pontes Miranda Advogados | Links</title>
+    <meta name="description" content="Pontes Miranda Advogados - Links rápidos para contato, WhatsApp, e-mail, Instagram e localização.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon_preto.png">
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem 1.25rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, rgba(0, 0, 0, 0) 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .links-container {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-wrapper {
+            margin-bottom: 2.5rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.5));
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.02);
+        }
+
+        .links-list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.15rem;
+        }
+
+        .link-card {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+            padding: 1.05rem 1.75rem;
+            background-color: #000000;
+            border: 1.5px solid rgba(255, 255, 255, 0.88);
+            border-radius: 9999px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.02rem;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+            user-select: none;
+        }
+
+        .link-card:hover {
+            background-color: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .link-card:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+        }
+
+        .link-icon {
+            width: 19px;
+            height: 19px;
+            flex-shrink: 0;
+            stroke-width: 2;
+            transition: stroke 0.25s ease, fill 0.25s ease;
+        }
+
+        .link-card:hover .link-icon {
+            stroke: #000000;
+        }
+
+        .link-icon-whatsapp {
+            width: 19px;
+            height: 19px;
+            fill: currentColor;
+        }
+
+        .links-footer {
+            margin-top: 2.75rem;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        .links-footer a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .links-footer a:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 2rem 1.1rem;
+            }
+
+            .logo-img {
+                max-width: 220px;
+            }
+
+            .logo-wrapper {
+                margin-bottom: 2.2rem;
+            }
+
+            .link-card {
+                padding: 0.95rem 1.5rem;
+                font-size: 0.98rem;
+                gap: 0.55rem;
+            }
+
+            .links-list {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="links-container">
+        <!-- Logo -->
+        <div class="logo-wrapper">
+            <a href="/" title="Pontes Miranda Advogados">
+                <img src="assets/logo_prata.png" alt="Pontes Miranda Advogados" class="logo-img">
+            </a>
+        </div>
+
+        <!-- Links List -->
+        <nav class="links-list" aria-label="Links rápidos">
+            
+            <!-- WhatsApp -->
+            <a href="https://wa.me/5561982258072" target="_blank" rel="noopener noreferrer" class="link-card" id="link-whatsapp">
+                <svg class="link-icon-whatsapp" viewBox="0 0 24 24" width="19" height="19">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.667-.699c.974.53 1.803.82 2.793.82 3.181 0 5.767-2.586 5.767-5.766.001-3.182-2.585-5.806-5.767-5.806zm0 10.455c-.868 0-1.636-.239-2.316-.689l-.165-.109-1.579.414.421-1.54-.108-.172c-.496-.79-.758-1.583-.757-2.593.001-2.564 2.088-4.65 4.653-4.65 2.564 0 4.651 2.086 4.651 4.65 0 2.564-2.087 4.689-4.806 4.689zm2.55-3.486c-.14-.07-.828-.409-.957-.456-.129-.047-.223-.07-.317.07-.094.14-.364.456-.446.55-.082.094-.165.105-.305.035-.14-.07-.591-.218-1.127-.695-.417-.372-.699-.831-.781-.972-.082-.14-.009-.216.061-.286.063-.063.14-.164.21-.246.07-.082.094-.14.14-.234.047-.094.024-.176-.012-.246-.035-.07-.317-.765-.434-1.048-.114-.275-.23-.238-.317-.242l-.27-.004c-.094 0-.246.035-.375.176-.129.14-.493.482-.493 1.176s.505 1.364.575 1.458c.07.094.994 1.517 2.408 2.128.337.145.6.232.805.298.338.107.646.092.89.056.271-.041.828-.338.945-.665.117-.327.117-.607.082-.665-.035-.058-.129-.093-.269-.163z"/>
+                    <path d="M12.012 2.002C6.489 2.002 2 6.49 2 12.014c0 1.986.58 3.84 1.583 5.405L2 22l4.721-1.536A9.957 9.957 0 0012.012 22c5.522 0 10.012-4.488 10.012-10.012 0-5.524-4.49-10.012-10.012-10.012zm0 18.232c-1.637 0-3.153-.483-4.431-1.314l-.317-.206-2.8 1.053 1.05-2.73-.207-.33A8.214 8.214 0 013.793 12.014c0-4.532 3.687-8.219 8.219-8.219s8.219 3.687 8.219 8.219-3.687 8.22-8.219 8.22z"/>
+                </svg>
+                <span>WhatsApp</span>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:contato@pontesmirandaadv.com.br" target="_blank" rel="noopener noreferrer" class="link-card" id="link-email">
+                <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+                <span>Email</span>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/pontesmirandaadvogados/" target="_blank" rel="noopener noreferrer" class="link-card" id="link-instagram">
+                <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                </svg>
+                <span>Instagram</span>
+            </a>
+
+            <!-- Localização -->
+            <a href="https://www.google.com/maps/place/Vista+Shopping/@-15.8303957,-48.0104904,17z/data=!4m6!3m5!1s0x935a3340d23a8429:0x391da9100395e52d!8m2!3d-15.8303186!4d-48.0105516!16s%2Fg%2F11r37d1wv9?hl=pt-BR&entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="link-card" id="link-localizacao">
+                <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Localização</span>
+            </a>
+
+        </nav>
+
+        <!-- Footer -->
+        <footer class="links-footer">
+            <p>&copy; 2026 Pontes Miranda Advogados. Todos os direitos reservados.</p>
+        </footer>
+    </main>
+
+</body>
+</html>

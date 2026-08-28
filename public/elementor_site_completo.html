@@ -1,0 +1,3282 @@
+<style>
+html, body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+/* 
+   Pontes Miranda Advogados - Stylesheet
+   Design: Premium Boutique (Light Beige, Dark Green & Gold)
+   Author: Antigravity AI
+*/
+
+:root {
+    --bg-primary: #f5ede3;       /* Nude Principal (Tonalidade areia suave) */
+    --bg-secondary: #faf6f0;     /* Nude Claro (Tonalidade creme/off-white) */
+    --bg-tertiary: #ebdcc9;      /* Nude Escuro (Contraste de argila/areia escuro) */
+    
+    --text-main: #1c1d1f;        /* Preto Grafite */
+    --text-muted: #4e5156;       /* Cinza Escuro */
+    --text-subtle: #7a8286;      /* Cinza Prateado */
+    
+    --card-bg: #ffffff;
+    --card-border: rgba(181, 186, 189, 0.25);
+    --card-border-hover: rgba(181, 186, 189, 0.5);
+    
+    --gold-primary: #b5babd;     /* Prata Principal */
+    --gold-light: #e2e8f0;       /* Prata Claro */
+    --gold-dark: #7a8286;        /* Prata Escuro */
+    --gold-gradient: linear-gradient(135deg, #ffffff 0%, #b5babd 50%, #7a8286 100%);
+    --gold-glow: 0 0 20px rgba(181, 186, 189, 0.15);
+    
+    --green-primary: #121212;    /* Preto Principal (botões, cards de diferenciais/floating) */
+    --green-dark: #0a0a0a;       /* Preto Profundo (cabeçalho, footer, etc.) */
+    --green-light: #1e1e1f;      /* Preto Suave (fundo de cards escuros) */
+    
+    --silver-primary: #b5babd;
+    --silver-light: #ffffff;
+    --silver-dark: #7a8286;
+    --silver-gradient: linear-gradient(135deg, #ffffff 0%, #b5babd 50%, #7a8286 100%);
+    
+    --font-title: 'Playfair Display', serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    
+    --header-height: 80px;
+    --border-radius: 8px; /* Slightly more geometric boutique feel */
+    
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    background-color: var(--bg-primary);
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Typography elements */
+h1, h2, h3, h4 {
+    font-family: var(--font-title);
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--text-main);
+}
+
+p {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-fast);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Layout Utilities */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Header & Navbar */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background: #000000; /* Preto absoluto inicial */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 1000;
+    transition: var(--transition-normal);
+}
+
+.header.scrolled {
+    height: 70px;
+    background: rgba(18, 18, 18, 0.97); /* Levemente mais claro ao rolar, bem sutil */
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.nav-logo {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+    transition: var(--transition-normal);
+    filter: none; /* Mantém a logo em prata */
+}
+
+.header.scrolled .nav-logo {
+    height: 44px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-item {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.5px;
+    position: relative;
+    padding: 8px 0;
+}
+
+.nav-item:hover {
+    color: #ffffff;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--gold-primary); /* Prata */
+    transition: var(--transition-fast);
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.btn-nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    background: #ffffff; /* Fundo branco */
+    color: #000000; /* Letras pretas */
+    border: 1px solid #ffffff;
+    transition: var(--transition-normal);
+}
+
+.btn-nav:hover {
+    background: var(--gold-primary); /* Prata */
+    color: #000000; /* Letras pretas */
+    border-color: var(--gold-primary);
+    transform: translateY(-1px);
+}
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.nav-btn-mobile {
+    display: none;
+}
+
+/* Sections - Global */
+section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.section-header {
+    margin-bottom: 60px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--gold-primary);
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--text-main);
+    margin-bottom: 16px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* -------------------------------------------------------------
+   HERO SECTION - BRAND NEW REFATORED CODE
+   ------------------------------------------------------------- */
+.hero-section {
+    min-height: 100vh;
+    padding-top: calc(var(--header-height) + 20px);
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--bg-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container {
+    max-width: 1360px; /* Sessão hero mais larga */
+}
+
+.hero-grid-main {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 40px; /* Maior espaçamento */
+    align-items: center;
+    width: 100%;
+}
+
+.hero-text-col {
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-headline {
+    font-family: var(--font-title);
+    font-size: 3.4rem;
+    font-weight: 400;
+    color: var(--text-main);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.gold-text-highlight {
+    color: var(--gold-primary);
+    font-style: italic;
+    font-family: var(--font-title);
+}
+
+.hero-text-support {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-top: 24px;
+    margin-bottom: 40px;
+    line-height: 1.65;
+    font-weight: 400;
+    max-width: 600px; /* Aumentado para equilibrar o layout */
+}
+
+.hero-ctas-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+/* Primary WhatsApp CTA Container */
+.primary-cta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-whatsapp-hero {
+    background-color: #25D366; /* Cor oficial do WhatsApp */
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o texto */
+    gap: 0;
+    padding: 16px 48px; /* Botão mais largo/alto */
+    border-radius: 50px; /* Totalmente arredondado */
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.25);
+    transition: var(--transition-normal);
+    cursor: pointer;
+    min-height: 60px;
+    box-sizing: border-box;
+    white-space: nowrap; /* Impede que o texto quebre linha */
+}
+
+/* Proposito CTA Button */
+.proposito-cta {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.btn-whatsapp-proposito {
+    background-color: #25D366; /* Cor oficial do WhatsApp */
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o texto */
+    gap: 0;
+    padding: 16px 48px; /* Botão mais largo/alto */
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.25);
+    transition: var(--transition-normal);
+    cursor: pointer;
+    text-decoration: none;
+    min-height: 60px;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.btn-whatsapp-proposito:hover {
+    background-color: #20ba59; /* Verde levemente mais escuro */
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.35);
+}
+
+.btn-whatsapp-proposito i,
+.btn-whatsapp-proposito svg {
+    width: 20px;
+    height: 20px;
+    color: #ffffff;
+}
+
+.btn-whatsapp-hero:hover {
+    background-color: #20ba59; /* Verde levemente mais escuro */
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.35);
+}
+
+.whatsapp-hero-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.whatsapp-hero-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.25;
+}
+
+.whatsapp-hero-label {
+    font-family: var(--font-body);
+    font-size: 0.95rem; /* Texto ligeiramente maior */
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    white-space: nowrap;
+}
+
+.whatsapp-hero-phone {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 400;
+    opacity: 0.85;
+}
+
+.whatsapp-hero-bubble {
+    background-color: #eae5db;
+    border: 1px solid rgba(197, 168, 128, 0.25);
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 50px;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+/* Secondary CTA Button */
+.btn-message-hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+    color: var(--green-primary); /* Texto Preto */
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 28px;
+    border-radius: 50px;
+    transition: var(--transition-normal);
+    cursor: pointer;
+    min-height: 58px;
+    box-shadow: 0 8px 20px rgba(148, 163, 184, 0.2),
+                0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+.btn-message-hero:hover {
+    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 50%, #cbd5e1 100%);
+    border-color: rgba(255, 255, 255, 0.8);
+    color: var(--green-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(148, 163, 184, 0.45), 
+                0 0 25px rgba(255, 255, 255, 0.5);
+}
+
+.btn-message-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    transform: skewX(-25deg);
+    animation: metallicShine 4.5s infinite ease-in-out;
+}
+
+@keyframes metallicShine {
+    0% {
+        left: -150%;
+    }
+    50% {
+        left: -150%;
+    }
+    100% {
+        left: 250%;
+    }
+}
+
+.message-hero-icon-box {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit; /* Herda a cor do texto do botão */
+}
+
+.message-hero-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.message-hero-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.25;
+}
+
+.message-hero-label {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.message-hero-sub {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: rgba(28, 29, 31, 0.65);
+}
+
+/* Hero Right Side: Image and absolute OAB badges */
+.hero-image-col {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+}
+
+.organic-photo-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px; /* Exact 2:3 ratio width */
+    height: 600px;    /* Exact 2:3 ratio height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.organic-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Since container ratio matches image, cover displays the whole photo */
+    object-position: center;
+    border-radius: 32px; /* Elegant rounded rectangle shape */
+    border: 1.5px solid var(--gold-primary);
+    box-shadow: 0 15px 35px rgba(27, 50, 44, 0.08);
+    z-index: 10;
+    position: relative;
+    transition: var(--transition-normal);
+}
+
+.organic-photo-img:hover {
+    transform: scale(1.01);
+    box-shadow: 0 20px 45px rgba(27, 50, 44, 0.12);
+}
+
+.organic-photo-decor-line {
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    right: -12px;
+    bottom: -12px;
+    border: 1px solid rgba(181, 186, 189, 0.35); /* Thin elegant silver outline */
+    border-radius: 40px; /* Offset rounded rectangle matching image shape */
+    pointer-events: none;
+    z-index: 1;
+    transition: var(--transition-normal);
+}
+
+.organic-photo-wrapper:hover .organic-photo-decor-line {
+    transform: scale(1.02) rotate(1deg);
+}
+
+/* Small solid dot on the outline, matching reference image */
+.organic-photo-decor-line::after {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: -5px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--gold-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(181, 186, 189, 0.5);
+}
+
+/* Floating Card for Areas of Actuation */
+.areas-floating-card {
+    background-color: var(--green-primary); /* Preto */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius);
+    padding: 28px 48px; /* Card mais largo */
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 40px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 25;
+}
+
+.floating-card-title-col {
+    flex-shrink: 0;
+    padding-right: 30px;
+}
+
+.floating-card-tag {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--gold-primary); /* Prata */
+    display: block;
+    width: 100px;
+    line-height: 1.4;
+}
+
+.floating-card-separator {
+    width: 1px;
+    height: 52px;
+    background-color: rgba(255, 255, 255, 0.15); /* Separador Prata sutil */
+    margin-right: 30px;
+    flex-shrink: 0;
+}
+
+.floating-card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 40px; /* Maior gap */
+    width: 100%;
+}
+
+.floating-card-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 6px;
+    color: #ffffff; /* Letras brancas */
+    transition: var(--transition-fast);
+}
+
+.floating-card-item:hover {
+    transform: translateY(-2px);
+    color: var(--gold-light);
+}
+
+.floating-card-item i {
+    width: 18px;
+    height: 18px;
+    color: var(--gold-primary); /* Prata */
+}
+
+.floating-card-item span {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* -------------------------------------------------------------
+   OTHER SECTIONS - ADAPTED TO LIGHT BOUTIQUE DESIGN
+   ------------------------------------------------------------- */
+
+/* Diferenciais Section */
+.diferenciais-section {
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid rgba(28, 29, 31, 0.03);
+}
+
+.diferenciais-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.diferencial-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    padding: 32px 24px;
+    transition: var(--transition-normal);
+}
+
+.diferencial-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--card-border-hover);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03), var(--gold-glow);
+}
+
+.diferencial-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    background: rgba(181, 186, 189, 0.08); /* Prata */
+    border: 1px solid rgba(181, 186, 189, 0.2);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--green-primary); /* Preto Grafite */
+    transition: var(--transition-fast);
+}
+
+.diferencial-card:hover .diferencial-icon-wrapper {
+    background: var(--green-primary);
+    color: #ffffff;
+    border-color: transparent;
+}
+
+.diferencial-icon-wrapper i {
+    width: 22px;
+    height: 22px;
+}
+
+.diferencial-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    color: var(--text-main);
+}
+
+.diferencial-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+/* Nosso Propósito / Institucional Section */
+.proposito-section {
+    background-color: var(--bg-primary);
+    border-top: 1px solid rgba(28, 29, 31, 0.02);
+    border-bottom: 1px solid rgba(28, 29, 31, 0.02);
+}
+
+.proposito-container {
+    max-width: 900px; /* Tighter layout for single-column readability */
+}
+
+.proposito-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.proposito-title {
+    font-size: 2.4rem;
+    margin-bottom: 24px;
+    color: var(--text-main);
+    text-align: center;
+}
+
+.proposito-text {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    text-align: center;
+    max-width: 760px;
+}
+
+/* -------------------------------------------------------------
+   SOCIAL CARD (TWEET UI) - KOKONUT UI PORTED TO PLAIN CSS
+   ------------------------------------------------------------- */
+.social-card {
+    width: 100%;
+    max-width: 760px;
+    margin: 40px auto 0 auto;
+    background: #ffffff;
+    border: 1px solid rgba(28, 29, 31, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+    text-align: left;
+    transition: var(--transition-normal);
+    position: relative; /* For simulated cursor overlay */
+}
+
+/* Simulated cursor overlay for auto-demo click animation */
+.simulated-cursor {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    top: 0;
+    left: 0;
+    margin-top: -3px;
+    margin-left: -4px;
+    pointer-events: none;
+    z-index: 100;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+    opacity: 0;
+}
+
+.simulated-cursor.active {
+    opacity: 1;
+}
+
+.simulated-cursor svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+    transition: transform 0.15s ease;
+    transform-origin: top left;
+}
+
+.simulated-cursor.clicking svg {
+    transform: scale(0.85);
+}
+
+.social-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 45px rgba(27, 50, 44, 0.05);
+    border-color: rgba(181, 186, 189, 0.3); /* Prata */
+}
+
+.social-card-body {
+    padding: 28px;
+}
+
+/* Author block */
+.social-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.social-card-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.social-card-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    object-fit: cover;
+    background-color: #000000;
+}
+
+.social-card-author-info {
+    line-height: 1.3;
+}
+
+.social-card-name {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.social-card-username {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--text-subtle);
+    font-weight: 400;
+}
+
+.social-card-more {
+    background: none;
+    border: none;
+    color: var(--text-subtle);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-card-more:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+    color: var(--text-main);
+}
+
+.social-card-more i {
+    width: 18px;
+    height: 18px;
+}
+
+/* Post text */
+.social-card-text {
+    font-family: var(--font-title);
+    font-size: 1.35rem;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--green-primary);
+    line-height: 1.5;
+    margin-bottom: 24px;
+    padding-left: 12px;
+    border-left: 2px solid var(--gold-primary); /* Prata */
+}
+
+/* Link preview card */
+.social-card-link-preview {
+    margin-bottom: 24px;
+    border-radius: 12px;
+    border: 1px solid rgba(28, 29, 31, 0.08);
+    overflow: hidden;
+    transition: var(--transition-fast);
+}
+
+.social-card-link-preview:hover {
+    border-color: rgba(181, 186, 189, 0.4);
+    background-color: rgba(247, 244, 238, 0.15);
+}
+
+.link-preview-content {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: #fdfcfb;
+}
+
+.link-preview-icon-box {
+    width: 42px;
+    height: 42px;
+    background-color: rgba(27, 50, 44, 0.04);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green-primary);
+    flex-shrink: 0;
+}
+
+.link-preview-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.link-preview-text-box {
+    line-height: 1.35;
+}
+
+.link-preview-title {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.link-preview-desc {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--text-subtle);
+    font-weight: 400;
+    margin-top: 2px;
+}
+
+/* Engagement bar */
+.social-card-engagement {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(28, 29, 31, 0.08);
+    padding-top: 20px;
+}
+
+.engagement-left {
+    display: flex;
+    gap: 28px;
+}
+
+.engagement-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-subtle);
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.engagement-icon {
+    width: 18px;
+    height: 18px;
+    transition: transform var(--transition-fast);
+}
+
+.engagement-btn:hover .engagement-icon {
+    transform: scale(1.1);
+}
+
+/* Button colors */
+.like-btn:hover {
+    color: #e11d48;
+}
+.like-btn.active {
+    color: #e11d48;
+}
+.like-btn.active i,
+.like-btn.active svg {
+    fill: currentColor;
+}
+
+.comment-btn:hover {
+    color: #2563eb;
+}
+
+.share-btn:hover {
+    color: #16a34a;
+}
+.share-btn.active {
+    color: #16a34a;
+}
+
+.bookmark-btn {
+    padding: 6px;
+    border-radius: 50%;
+    color: var(--text-subtle);
+}
+.bookmark-btn:hover {
+    color: #d97706;
+    background-color: rgba(217, 119, 6, 0.05);
+}
+.bookmark-btn.active {
+    color: #d97706;
+    background-color: rgba(217, 119, 6, 0.08);
+}
+.bookmark-btn.active i,
+.bookmark-btn.active svg {
+    fill: currentColor;
+}
+
+/* Quem Somos Section */
+.sobre-section {
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid rgba(28, 29, 31, 0.03);
+}
+
+.sobre-container {
+    max-width: 1200px;
+}
+
+.sobre-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.sobre-image-column {
+    display: flex;
+    justify-content: center;
+}
+
+.studio-photo-frame {
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+    z-index: 10;
+}
+
+.studio-photo {
+    width: 100%;
+    height: 560px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--gold-primary);
+    box-shadow: 0 20px 45px rgba(27, 50, 44, 0.08), var(--gold-glow);
+    z-index: 5;
+    position: relative;
+}
+
+.studio-photo-decor {
+    position: absolute;
+    top: 20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    border: 1.5px solid var(--gold-primary);
+    border-radius: var(--border-radius);
+    z-index: 1;
+    pointer-events: none;
+    transition: var(--transition-normal);
+}
+
+.studio-photo-frame:hover .studio-photo-decor {
+    transform: translate(8px, -8px);
+    border-color: var(--green-primary);
+}
+
+.sobre-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.sobre-lead {
+    font-size: 1.15rem;
+    color: var(--text-main);
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+.bio-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.bio-card {
+    background: var(--card-bg);
+    border-left: 3px solid var(--gold-primary);
+    border-top: 1px solid var(--card-border);
+    border-right: 1px solid var(--card-border);
+    border-bottom: 1px solid var(--card-border);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 24px 28px;
+    transition: var(--transition-fast);
+}
+
+.bio-card:hover {
+    border-left-color: var(--green-primary);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+}
+
+.bio-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 6px;
+    color: var(--text-main);
+}
+
+.bio-subtitle {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gold-primary);
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.bio-card p {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+}
+
+.sobre-cta {
+    display: inline-block;
+}
+
+.sobre-cta .btn-primary {
+    background: var(--green-primary);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(27, 50, 44, 0.12);
+}
+
+.sobre-cta .btn-primary:hover {
+    background: var(--green-dark);
+    box-shadow: 0 8px 25px rgba(27, 50, 44, 0.25);
+}
+
+/* Depoimentos Section */
+.depoimentos-section {
+    background-color: var(--bg-primary);
+}
+
+.depoimentos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.depoimento-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    padding: 36px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition-normal);
+}
+
+.depoimento-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--card-border-hover);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+.depoimento-stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 20px;
+}
+
+.star-filled {
+    width: 16px;
+    height: 16px;
+    fill: #f59e0b;
+    color: #f59e0b;
+}
+
+.depoimento-text {
+    font-size: 0.95rem;
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.depoimento-user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 16px;
+}
+
+.user-name {
+    display: block;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--text-main);
+}
+
+.user-role {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--text-subtle);
+}
+
+.google-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    color: var(--text-subtle);
+}
+
+.google-icon {
+    width: 12px;
+    height: 12px;
+}
+
+/* Formulário de Contato Section */
+.contato-section {
+    background-color: var(--bg-secondary);
+}
+
+.contato-container {
+    max-width: 1200px;
+}
+
+.contato-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    background: var(--bg-primary);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    padding: 60px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.03);
+    backdrop-filter: blur(10px);
+}
+
+.contato-heading {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: var(--text-main);
+}
+
+.contato-desc {
+    font-size: 1rem;
+    margin-bottom: 40px;
+    color: var(--text-muted);
+}
+
+.contato-details {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.details-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.details-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(181, 186, 189, 0.08); /* Prata */
+    border: 1px solid rgba(181, 186, 189, 0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green-primary); /* Preto Grafite */
+}
+
+.details-icon i {
+    width: 20px;
+    height: 20px;
+}
+
+.details-item h4 {
+    font-size: 1rem;
+    color: var(--text-main);
+    margin-bottom: 4px;
+    font-family: var(--font-body);
+    font-weight: 600;
+}
+
+.details-item p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+}
+
+/* Contact Form Elements */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    background: #ffffff;
+    border: 1px solid rgba(28, 29, 31, 0.12);
+    border-radius: var(--border-radius);
+    padding: 14px 18px;
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+    outline: none;
+}
+
+.form-group input::placeholder, 
+.form-group textarea::placeholder {
+    color: rgba(28, 29, 31, 0.35);
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    border-color: var(--gold-primary); /* Prata */
+    box-shadow: 0 0 10px rgba(181, 186, 189, 0.08);
+}
+
+/* Custom dropdown style */
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23b5babd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    background-size: 16px;
+    padding-right: 45px;
+}
+
+.form-group select option {
+    background: #ffffff;
+    color: var(--text-main);
+}
+
+.contact-form .btn-primary {
+    background-color: #25D366; /* Cor oficial do WhatsApp */
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o texto */
+    gap: 0;
+    padding: 16px 48px; /* Espaçamento vertical e horizontal leal */
+    border-radius: 50px; /* Bordas arredondadas */
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.25);
+    transition: var(--transition-normal);
+    cursor: pointer;
+    min-height: 60px;
+    box-sizing: border-box;
+    white-space: nowrap;
+    border: none;
+    width: 100%; /* Ocupa 100% da largura do formulário */
+}
+
+.contact-form .btn-primary:hover {
+    background-color: #20ba59; /* Verde levemente mais escuro */
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.35);
+}
+
+.form-disclaimer {
+    font-size: 0.72rem;
+    color: var(--text-subtle);
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Error validation messages */
+.error-msg {
+    display: none;
+    font-size: 0.75rem;
+    color: #ef4444;
+    font-weight: 500;
+}
+
+.form-group.invalid input,
+.form-group.invalid select,
+.form-group.invalid textarea {
+    border-color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.02);
+}
+
+.form-group.invalid .error-msg {
+    display: block;
+}
+
+/* FAQ Section */
+.faq-section {
+    background-color: var(--bg-primary);
+    border-top: 1px solid rgba(28, 29, 31, 0.02);
+}
+
+.faq-container {
+    max-width: 900px;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.faq-item {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition-normal);
+}
+
+.faq-item:hover {
+    border-color: var(--card-border-hover);
+}
+
+.faq-question {
+    width: 100%;
+    padding: 24px 30px;
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-family: var(--font-title);
+    font-size: 1.25rem;
+    font-weight: 400;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    gap: 20px;
+    outline: none;
+}
+
+.faq-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--gold-primary);
+    transition: var(--transition-normal);
+    flex-shrink: 0;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-normal);
+}
+
+.faq-answer p {
+    padding: 0 30px 24px 30px;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+}
+
+/* Active FAQ Item classes */
+.faq-item.faq-open {
+    background: #ffffff; /* Fundo branco mesmo ativo */
+    border-color: rgba(181, 186, 189, 0.35);
+}
+
+.faq-item.faq-open .faq-icon {
+    transform: rotate(180deg);
+    color: var(--text-main);
+}
+
+/* Footer styling */
+.footer {
+    background: var(--green-dark); /* Preto Profundo */
+    border-top: 1px solid rgba(181, 186, 189, 0.15); /* Prata */
+    padding: 80px 0 40px 0;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.footer-container {
+    max-width: 1200px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-logo {
+    height: 56px;
+    width: auto;
+    align-self: flex-start;
+    /* No filter here: silver logo looks gorgeous on dark footer */
+}
+
+.footer-tagline {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #ffffff;
+}
+
+.social-links {
+    display: flex;
+    gap: 16px;
+}
+
+.social-links a {
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    transition: var(--transition-fast);
+}
+
+.social-links a:hover {
+    color: var(--gold-primary); /* Prata */
+    background: rgba(181, 186, 189, 0.12); /* Prata */
+    border-color: var(--gold-primary);
+    transform: translateY(-2px);
+}
+
+.social-links a i {
+    width: 18px;
+    height: 18px;
+}
+
+.social-links a img.footer-instagram-img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    filter: invert(1);
+    transition: var(--transition-fast);
+}
+
+.social-links a:hover img.footer-instagram-img {
+    filter: invert(0.85); /* Slightly darker silver/white on hover */
+}
+
+.footer-grid h4 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+    margin-bottom: 24px;
+}
+
+.footer-grid ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-grid ul a {
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+.footer-grid ul a:hover {
+    color: var(--gold-primary);
+    padding-left: 4px;
+}
+
+.footer-contact p {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.footer-divider {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin-bottom: 30px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 0.8rem;
+}
+
+.footer-lawyer-credentials {
+    color: rgba(255, 255, 255, 0.35);
+    display: flex;
+    gap: 10px;
+}
+
+.credential-divider {
+    color: rgba(255,255,255,0.15);
+}
+
+/* Floating WhatsApp Button with premium animations */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 64px;
+    height: 64px;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    box-sizing: border-box;
+    box-shadow: 0 0 30px rgba(37, 211, 102, 0.5), 0 0 60px rgba(37, 211, 102, 0.25);
+    z-index: 50;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+    animation: entryAnimation 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1s forwards;
+    opacity: 0;
+    transform: scale(0);
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 0 40px rgba(37, 211, 102, 0.6), 0 0 80px rgba(37, 211, 102, 0.35);
+}
+
+.floating-whatsapp:active {
+    transform: scale(0.95) !important;
+}
+
+.floating-whatsapp .whatsapp-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* White filter utility for in-page WhatsApp buttons */
+.img-icon-white {
+    object-fit: contain;
+}
+
+.floating-whatsapp-pulse {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid #25d366;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -2;
+    animation: pulseRing 4s ease-in-out infinite;
+}
+
+.floating-whatsapp-glow {
+    position: absolute;
+    top: -24px;
+    left: -24px;
+    right: -24px;
+    bottom: -24px;
+    background: radial-gradient(circle, rgba(37, 211, 102, 0.45) 0%, rgba(37, 211, 102, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -3;
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+.whatsapp-tooltip {
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    transform: translateY(-50%) translateX(10px);
+    background: #1c1d1f;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.floating-whatsapp:hover .whatsapp-tooltip {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* Animations */
+@keyframes entryAnimation {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulseRing {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.25);
+        opacity: 0;
+    }
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 0.9;
+    }
+}
+
+/* Success Modal Dialog Styling */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-normal);
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-content {
+    background: var(--bg-secondary);
+    border: 1px solid var(--gold-primary);
+    border-radius: var(--border-radius);
+    max-width: 500px;
+    width: 90%;
+    padding: 40px;
+    box-shadow: 0 25px 60px rgba(27, 50, 44, 0.1), var(--gold-glow);
+    text-align: center;
+    transform: translateY(30px);
+    transition: transform var(--transition-normal);
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-header {
+    margin-bottom: 24px;
+}
+
+.success-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    background: rgba(37, 211, 102, 0.1);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    color: #25d366;
+}
+
+.modal-success-icon {
+    width: 36px;
+    height: 36px;
+}
+
+.modal-header h3 {
+    font-size: 1.6rem;
+    color: var(--text-main);
+}
+
+.modal-body p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    color: var(--text-muted);
+}
+
+.loading-bar-container {
+    width: 100%;
+    height: 6px;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.loading-bar {
+    width: 0%;
+    height: 100%;
+    background: var(--gold-gradient);
+    border-radius: 10px;
+    transition: width 3s linear;
+}
+
+.modal-subtext {
+    font-size: 0.82rem;
+    color: var(--text-subtle) !important;
+    margin-bottom: 12px !important;
+}
+
+.modal-body .btn-primary {
+    background: var(--green-primary);
+    color: #ffffff;
+    border-radius: var(--border-radius);
+    padding: 14px 28px;
+    box-shadow: 0 4px 15px rgba(27, 50, 44, 0.12);
+}
+
+.modal-body .btn-primary:hover {
+    background: var(--green-dark);
+    box-shadow: 0 8px 25px rgba(27, 50, 44, 0.25);
+}
+
+/* Responsive Styles */
+@media (max-width: 1100px) {
+    .hero-headline {
+        font-size: 2.8rem;
+    }
+    
+    .hero-photo-img {
+        max-height: 460px;
+    }
+    
+    .hero-image-col {
+        height: 460px;
+    }
+    
+    .areas-floating-card {
+        padding: 24px 28px;
+    }
+    
+    .floating-card-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px 20px;
+    }
+    
+    .diferenciais-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .sobre-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .sobre-image-column {
+        order: 2;
+    }
+    
+    .studio-photo {
+        height: 500px;
+    }
+    
+    .proposito-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .proposito-image-wrapper {
+        display: none;
+    }
+    
+    .contato-wrapper {
+        grid-template-columns: 1fr;
+        padding: 40px;
+        gap: 40px;
+    }
+    
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-grid-main {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .hero-text-col {
+        padding-right: 0;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .hero-text-support {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .hero-ctas-container {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .hero-image-col {
+        height: 480px;
+    }
+    
+    .amanda-oab {
+        bottom: 15%;
+        left: 20%;
+    }
+    
+    .jessica-oab {
+        top: 35%;
+        right: 15%;
+    }
+    
+    .areas-floating-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .floating-card-title-col {
+        padding-right: 0;
+    }
+    
+    .floating-card-tag {
+        width: 100%;
+    }
+    
+    .floating-card-separator {
+        width: 100%;
+        height: 1px;
+        margin-right: 0;
+    }
+    
+    .floating-card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 70px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .mobile-toggle {
+        display: block;
+        z-index: 1001;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--bg-secondary);
+        border-left: 1px solid rgba(28, 29, 31, 0.08);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        padding: 40px;
+        transition: right var(--transition-normal);
+        z-index: 1000;
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .btn-nav {
+        display: none;
+    }
+    
+    .nav-btn-mobile {
+        display: block;
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+        padding: 12px 24px;
+        background: var(--green-primary);
+        color: #ffffff;
+        font-weight: 600;
+        border-radius: var(--border-radius);
+    }
+    
+    .hero-section {
+        padding-top: calc(var(--header-height) + 20px);
+    }
+    
+    .hero-headline {
+        font-size: 2.3rem;
+    }
+    
+    .hero-ctas-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+    }
+    
+    .primary-cta-group, 
+    .btn-whatsapp-hero, 
+    .btn-message-hero {
+        width: 100%;
+    }
+    
+    .btn-whatsapp-hero, 
+    .btn-message-hero {
+        justify-content: center;
+    }
+    
+    .hero-image-col {
+        height: 380px;
+    }
+    
+    .amanda-oab {
+        bottom: 12%;
+        left: 12%;
+    }
+    
+    .jessica-oab {
+        top: 35%;
+        right: 8%;
+    }
+    
+    .floating-card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px 10px;
+    }
+    
+    .floating-card-item span {
+        font-size: 0.68rem;
+    }
+    
+    .diferenciais-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .depoimentos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .floating-whatsapp {
+        bottom: 20px;
+        right: 20px;
+        width: 52px;
+        height: 52px;
+    }
+    
+    .floating-whatsapp:hover .whatsapp-tooltip {
+        display: none;
+    }
+}
+
+/* -------------------------------------------------------------
+   REVEAL / ANIMATION SYSTEM (Premium Subtle Motion)
+   ------------------------------------------------------------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-32px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(32px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.97);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+.reveal.active,
+.reveal-left.active,
+.reveal-right.active,
+.reveal-scale.active {
+    opacity: 1;
+    transform: translate(0) scale(1);
+}
+
+/* Staggered transition delays */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+
+/* =========================================
+   HERO REDESIGN (APPENDED)  — Mobile & Desktop Perfected
+   ========================================= */
+
+/* Header Base */
+.header {
+    background-color: #050505 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+    height: 70px !important;
+}
+.header-container {
+    height: 100% !important;
+}
+.btn-nav {
+    display: none !important;
+}
+
+/* Hero Section Base (Desktop) */
+.hero-section {
+    background: #f4eee5;
+    padding-top: 86px;
+    padding-bottom: 12px;
+    min-height: 100vh;
+    max-height: 720px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.hero-section .hero-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+/* Grid (Desktop: 52% / 48%) */
+.hero-grid-main.redesigned {
+    display: grid;
+    grid-template-columns: 52fr 48fr;
+    gap: 20px;
+    align-items: center;
+    flex: 1;
+}
+
+/* Left Column */
+.hero-text-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 20px;
+}
+
+.hero-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.85rem;
+    font-weight: 500;
+    color: #161616;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    margin: 0 0 14px 0;
+}
+
+.hero-headline .highlight-gold {
+    color: #c59b4e;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.hero-gold-divider {
+    width: 35px;
+    height: 2px;
+    background-color: #c59b4e;
+    margin-bottom: 14px;
+    border-radius: 2px;
+}
+
+.hero-text-support {
+    font-size: 0.86rem;
+    color: #555555;
+    line-height: 1.55;
+    margin: 0 0 20px 0;
+    max-width: 90%;
+    font-weight: 400;
+}
+
+.hero-ctas-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Buttons */
+.btn-whatsapp-hero {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #1e2e28;
+    color: #ffffff;
+    height: 48px;
+    padding: 0 26px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(30, 46, 40, 0.25);
+}
+.btn-whatsapp-hero:hover {
+    background-color: #15221d;
+    transform: translateY(-1px);
+}
+.cta-icon-whatsapp {
+    width: 18px;
+    height: 18px;
+    color: #c59b4e;
+}
+
+.btn-message-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #eae1d3;
+    border: 1px solid #dcd2c3;
+    height: 48px;
+    padding: 0 16px 0 8px;
+    border-radius: 10px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+}
+.btn-message-hero:hover {
+    background-color: #e2d7c7;
+    transform: translateY(-1px);
+}
+.cta-icon-box {
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cta-icon-calendar { width: 16px; height: 16px; color: #333333; }
+.cta-text-box { display: flex; flex-direction: column; gap: 1px; }
+.cta-title {
+    font-size: 0.66rem;
+    font-weight: 700;
+    color: #222222;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+.cta-subtitle { font-size: 0.58rem; color: #666666; font-weight: 400; }
+
+/* Right Column (Desktop) */
+.hero-image-col {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.hero-photo-wrapper {
+    width: 100%;
+    height: 100%;
+    max-height: 440px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.hero-photo-img-clean {
+    max-width: 100%;
+    max-height: 440px;
+    object-fit: contain;
+    object-position: bottom center;
+    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.06));
+}
+
+/* Floating Areas Bar (Desktop) */
+.areas-floating-bar {
+    width: 100%;
+    background-color: #0c0c0c;
+    border-radius: 16px;
+    margin-top: 10px;
+    padding: 14px 20px;
+    box-sizing: border-box;
+}
+
+.areas-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.area-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex: 1;
+    min-width: 0;
+}
+
+.area-item i {
+    color: #c59b4e !important;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+.title-item span {
+    color: #c59b4e !important;
+}
+
+.area-item:not(.title-item) span {
+    color: #ffffff;
+}
+
+.area-item span {
+    font-size: 0.53rem;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.35;
+}
+
+.area-divider {
+    width: 1px;
+    height: 34px;
+    background: rgba(255, 255, 255, 0.12);
+    flex-shrink: 0;
+    margin: 0 4px;
+}
+
+/* =========================================
+   MOBILE MENU & RESPONSIVE REFINEMENTS
+   ========================================= */
+
+@media (max-width: 992px) {
+    .nav-menu {
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        width: 82% !important;
+        max-width: 320px !important;
+        height: 100vh !important;
+        background: #0d0d0d !important;
+        border-left: 1px solid rgba(197, 155, 78, 0.3) !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 22px !important;
+        padding: 40px 24px !important;
+        transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        z-index: 1000 !important;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .nav-menu.active {
+        right: 0 !important;
+    }
+
+    .nav-menu .nav-item {
+        color: #ffffff !important;
+        font-size: 1.05rem !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.5px !important;
+    }
+
+    .nav-menu .nav-item:hover {
+        color: #c59b4e !important;
+    }
+
+    .nav-btn-mobile {
+        display: block !important;
+        margin-top: 15px !important;
+        width: 100% !important;
+        text-align: center !important;
+        padding: 14px 20px !important;
+        background: #27ae60 !important;
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        font-size: 0.82rem !important;
+        border-radius: 40px !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.8px !important;
+        box-shadow: 0 6px 18px rgba(39, 174, 96, 0.3) !important;
+        text-decoration: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* 1. HERO MOBILE ORDERING & SIZES */
+    .hero-section {
+        height: auto !important;
+        max-height: none !important;
+        min-height: auto !important;
+        padding: 90px 0 30px !important;
+    }
+
+    .hero-section .hero-container {
+        padding: 0 20px !important;
+    }
+
+    .hero-grid-main.redesigned {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 16px !important;
+    }
+
+    .hero-text-col {
+        display: contents !important;
+    }
+
+    .hero-headline {
+        order: 1 !important;
+        font-size: 1.65rem !important;
+        line-height: 1.25 !important;
+        margin-bottom: 8px !important;
+        text-align: center !important;
+    }
+
+    .hero-gold-divider {
+        order: 2 !important;
+        margin: 0 auto 12px auto !important;
+    }
+
+    .hero-image-col {
+        order: 3 !important;
+        width: 100% !important;
+        max-height: 360px !important;
+        margin-bottom: 12px !important;
+        justify-content: center !important;
+    }
+
+    .hero-photo-wrapper, 
+    .hero-photo-img-clean {
+        max-height: 360px !important;
+    }
+
+    .hero-text-support {
+        order: 4 !important;
+        font-size: 0.88rem !important;
+        line-height: 1.55 !important;
+        margin-bottom: 20px !important;
+        text-align: center !important;
+        max-width: 100% !important;
+    }
+
+    .hero-ctas-container {
+        order: 5 !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 12px !important;
+    }
+
+    .btn-whatsapp-hero, 
+    .btn-message-hero {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    /* 2. ÁREAS DE ATUAÇÃO FLOATING BAR — MOBILE GRID (2 COLUMNS WITH TITLE SPAN) */
+    .areas-floating-bar {
+        margin-top: 20px !important;
+        padding: 20px 16px !important;
+        border-radius: 16px !important;
+        background-color: #0c0c0c !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .areas-bar-container {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 14px 10px !important;
+        width: 100% !important;
+    }
+
+    .area-item.title-item {
+        grid-column: 1 / -1 !important;
+        padding-bottom: 12px !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+        margin-bottom: 4px !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
+    }
+
+    .area-item.title-item span {
+        text-align: center !important;
+        font-size: 0.75rem !important;
+        letter-spacing: 1.2px !important;
+    }
+
+    .area-item:not(.title-item) {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 10px 6px !important;
+        background: rgba(255, 255, 255, 0.03) !important;
+        border-radius: 10px !important;
+        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+        min-height: 70px !important;
+    }
+
+    .area-item:not(.title-item) span {
+        font-size: 0.6rem !important;
+        line-height: 1.35 !important;
+    }
+
+    .area-divider {
+        display: none !important;
+    }
+
+    /* 3. SEÇÃO NOSSO PROPÓSITO & CTA BUTTON MOBILE ADJUSTMENTS */
+    .proposito-section {
+        padding: 60px 0 !important;
+    }
+
+    .proposito-title {
+        font-size: 1.4rem !important;
+        line-height: 1.35 !important;
+        margin-bottom: 20px !important;
+        padding: 0 10px !important;
+    }
+
+    .proposito-text {
+        font-size: 0.9rem !important;
+        line-height: 1.6 !important;
+    }
+
+    .proposito-cta {
+        width: 100% !important;
+    }
+
+    .btn-whatsapp-proposito {
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-content: center !important;
+        padding: 16px 20px !important;
+        font-size: 0.8rem !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+    }
+
+    /* 4. CONTATO SECTION & FORM OVERFLOW FIX (NO HORIZONTAL SCROLL) */
+    .contato-section {
+        padding: 50px 0 !important;
+        overflow: hidden !important;
+    }
+
+    .contato-container {
+        padding: 0 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .contato-wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 32px !important;
+        padding: 28px 18px !important;
+        border-radius: 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+
+    .contato-info-column, 
+    .contato-form-column {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .contato-heading {
+        font-size: 1.65rem !important;
+        line-height: 1.25 !important;
+        text-align: center !important;
+        margin-bottom: 14px !important;
+    }
+
+    .contato-desc {
+        font-size: 0.88rem !important;
+        line-height: 1.55 !important;
+        text-align: center !important;
+        margin-bottom: 24px !important;
+    }
+
+    .contato-details {
+        gap: 18px !important;
+    }
+
+    .details-item {
+        gap: 14px !important;
+        align-items: flex-start !important;
+    }
+
+    .details-item p {
+        word-break: break-word !important;
+        font-size: 0.85rem !important;
+    }
+
+    .contact-form {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .form-group {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        font-size: 0.9rem !important;
+    }
+
+    .form-row {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+        width: 100% !important;
+    }
+
+    .contact-form .btn-primary {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        font-size: 0.82rem !important;
+        padding: 14px 16px !important;
+        white-space: normal !important;
+        text-align: center !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-headline {
+        font-size: 1.55rem !important;
+    }
+}
+
+</style>
+<div class="elementor-custom-landing-wrapper">
+
+        
+        <!-- Hero Section -->
+        <section id="inicio" class="hero-section">
+            <div class="container hero-container">
+                
+
+
+
+<div class="hero-grid-main redesigned">
+    <!-- Coluna Esquerda: 52% -->
+    <div class="hero-text-col reveal-left">
+        
+        <h1 class="hero-headline">Estratégia jurídica<br>para proteger pessoas,<br>patrimônios, negócios<br>e <span class="highlight-gold">direitos.</span></h1>
+        
+        <div class="hero-gold-divider"></div>
+
+        <p class="hero-text-support">Aliamos conhecimento técnico, visão estratégica e atendimento personalizado para oferecer assessoria jurídica segura, eficiente e orientada às necessidades de cada cliente.</p>
+
+        <div class="hero-ctas-container">
+            <a href="https://wa.me/5561982258072?text=Ol%C3%A1%2C%20preciso%20de%20um%20advogado%21" class="btn-whatsapp-hero" target="_blank" rel="noopener noreferrer">
+                <i data-lucide="message-circle" class="cta-icon-whatsapp"></i>
+                <span>FALAR COM UMA ADVOGADA</span>
+            </a>
+
+            <a href="#contato" class="btn-message-hero">
+                <div class="cta-icon-box">
+                    <i data-lucide="calendar" class="cta-icon-calendar"></i>
+                </div>
+                <div class="cta-text-box">
+                    <span class="cta-title">AGENDAR ATENDIMENTO</span>
+                    <span class="cta-subtitle">Atendimento online ou presencial</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Coluna Direita: 48% -->
+    <div class="hero-image-col reveal-right">
+        <div class="hero-photo-wrapper">
+            <img src="assets/foto_advogadas_studio_color.jpg" alt="Dra. Amanda Pontes e Dra. Jéssica Miranda – Pontes Miranda Advogadas" class="hero-photo-img-clean">
+        </div>
+    </div>
+</div>
+
+
+
+
+                
+                <!-- Card Flutuante de Áreas de Atuação -->
+                
+
+
+
+<div class="areas-floating-bar" id="areas">
+    <div class="areas-bar-container">
+        <div class="area-item title-item">
+            <i data-lucide="scale"></i>
+            <span>ÁREAS DE<br>ATUAÇÃO</span>
+        </div>
+        <div class="area-divider"></div>
+        <div class="area-item">
+            <i data-lucide="users"></i>
+            <span>CÍVEL</span>
+        </div>
+        <div class="area-divider"></div>
+        <div class="area-item">
+            <i data-lucide="building-2"></i>
+            <span>FAMÍLIA E<br>SUCESSÕES</span>
+        </div>
+        <div class="area-divider"></div>
+        <div class="area-item">
+            <i data-lucide="briefcase"></i>
+            <span>EMPRESARIAL E<br>DIREITO MÉDICO</span>
+        </div>
+        <div class="area-divider"></div>
+        <div class="area-item">
+            <i data-lucide="gavel"></i>
+            <span>TRABALHISTA</span>
+        </div>
+        <div class="area-divider"></div>
+        <div class="area-item">
+            <i data-lucide="shield-check"></i>
+            <span>DIREITO DO<br>CONSUMIDOR</span>
+        </div>
+        <div class="area-divider"></div>
+        <div class="area-item">
+            <i data-lucide="heart-pulse"></i>
+            <span>DIREITO<br>DA SAÚDE</span>
+        </div>
+    </div>
+</div>
+
+
+
+
+                
+            </div>
+        </section>
+
+        <!-- Diferenciais / Confiança -->
+        <section id="diferenciais" class="diferenciais-section">
+            <div class="container">
+                <div class="section-header text-center reveal">
+                    <span class="section-tag">Por Que Escolher A Pontes Miranda</span>
+                    <h2 class="section-title">Pilares da nossa atuação jurídica</h2>
+                    <p class="section-subtitle">Acreditamos que a advocacia de excelência se constrói com conhecimento técnico, visão estratégica, ética profissional e compromisso com os interesses de cada cliente.</p>
+                </div>
+                <div class="diferenciais-grid">
+                    <div class="diferencial-card reveal stagger-1">
+                        <div class="diferencial-icon-wrapper">
+                            <i data-lucide="user-check"></i>
+                        </div>
+                        <h3>Atendimento Personalizado</h3>
+                        <p>Valorizamos o relacionamento próximo com nossos clientes, oferecendo atendimento individualizado, comunicação transparente e estratégias jurídicas construídas para cada caso.</p>
+                    </div>
+                    
+                    <div class="diferencial-card reveal stagger-3">
+                        <div class="diferencial-icon-wrapper">
+                            <i data-lucide="eye"></i>
+                        </div>
+                        <h3>Transparência</h3>
+                        <p>Acreditamos que a confiança se constrói por meio de uma comunicação transparente, orientações fundamentadas e acompanhamento próximo durante toda a condução da demanda.</p>
+                    </div>
+                    <div class="diferencial-card reveal stagger-4">
+                        <div class="diferencial-icon-wrapper">
+                            <i data-lucide="globe"></i>
+                        </div>
+                        <h3>Atuação Nacional</h3>
+                        <p>Com experiência em demandas de diferentes regiões do país, oferecemos assessoria jurídica estratégica e representação em âmbito nacional, mantendo a proximidade e a qualidade que caracterizam nossa atuação.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Seção 1: Fraude Bancária (Direito Bancário) -->
+        <section id="fraude-bancaria" class="specialty-cta-section dark-theme-cta">
+            <div class="container">
+                <div class="specialty-card-wrapper reveal">
+                    <div class="specialty-text-col">
+                        <div class="specialty-badge">
+                            <i data-lucide="shield-alert" class="badge-icon"></i>
+                            <span>DIREITO BANCÁRIO &amp; PROTEÇÃO PATRIMONIAL</span>
+                        </div>
+                        
+                        <h2 class="specialty-title">Fui Vítima de Fraude ou Golpe Bancário</h2>
+                        
+                        <p class="specialty-description">
+                            Se você sofreu com golpes do PIX, fraude do falso funcionário, empréstimos não contratados ou invasão de conta corrente, saiba que os bancos têm responsabilidade objetiva sobre a segurança das suas operações.
+                        </p>
+                        
+                        <ul class="specialty-checklist">
+                            <li>
+                                <i data-lucide="check-circle-2"></i>
+                                <span>Recuperação de valores transferidos sob golpe ou coação</span>
+                            </li>
+                            <li>
+                                <i data-lucide="check-circle-2"></i>
+                                <span>Cancelamento de empréstimos e cartões não solicitados</span>
+                            </li>
+                            <li>
+                                <i data-lucide="check-circle-2"></i>
+                                <span>Medidas judiciais ágeis com pedido de tutela de urgência</span>
+                            </li>
+                        </ul>
+
+                        <div class="specialty-cta-btn-wrapper">
+                            <a href="https://wa.me/5561982258072?text=Ol%C3%A1%2C%20fui%20v%C3%ADtima%20de%20fraude%20banc%C3%A1ria%20e%20preciso%20de%20ajuda%20jur%C3%ADdica%21" class="btn-specialty-cta btn-dark-cta" target="_blank" rel="noopener noreferrer">
+                                <i data-lucide="message-circle"></i>
+                                <span>CLIQUE AQUI E FALE CONOSCO</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="specialty-image-col">
+                        <div class="specialty-image-frame">
+                            <img src="assets/bank_fraud_law.jpg" alt="Proteção contra fraude bancária - Pontes Miranda Advogados" class="specialty-img">
+                            <div class="image-overlay-badge">
+                                <i data-lucide="lock"></i>
+                                <span>Defesa dos seus Direitos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 2: Tratamento Negado (Direito à Saúde) -->
+        <section id="tratamento-negado" class="specialty-cta-section light-theme-cta">
+            <div class="container">
+                <div class="specialty-card-wrapper reverse-layout reveal">
+                    <div class="specialty-image-col">
+                        <div class="specialty-image-frame">
+                            <img src="assets/health_law_denied.jpg" alt="Direito à Saúde e Liminares Médicas - Pontes Miranda Advogados" class="specialty-img">
+                            <div class="image-overlay-badge gold-badge">
+                                <i data-lucide="heart-pulse"></i>
+                                <span>Liminar Médica Urgente</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="specialty-text-col">
+                        <div class="specialty-badge gold-style">
+                            <i data-lucide="heart-handshake" class="badge-icon"></i>
+                            <span>DIREITO À SAÚDE &amp; TUTELA DE URGÊNCIA</span>
+                        </div>
+                        
+                        <h2 class="specialty-title">Meu Tratamento ou Cirurgia Foi Negado</h2>
+                        
+                        <p class="specialty-description">
+                            A negativa injustificada de exames, cirurgias, internações em UTI ou medicamentos de alto custo pelo plano de saúde ou SUS é ilegal. Atuamos com pedido de liminar na Justiça para liberar seu tratamento com máxima rapidez.
+                        </p>
+                        
+                        <ul class="specialty-checklist">
+                            <li>
+                                <i data-lucide="check-circle-2"></i>
+                                <span>Ação com liminar judicial urgente para liberação imediata</span>
+                            </li>
+                            <li>
+                                <i data-lucide="check-circle-2"></i>
+                                <span>Fornecimento de medicamentos de alto custo e oncologia</span>
+                            </li>
+                            <li>
+                                <i data-lucide="check-circle-2"></i>
+                                <span>Reversão de cancelamentos unilaterais e reajustes abusivos</span>
+                            </li>
+                        </ul>
+
+                        <div class="specialty-cta-btn-wrapper">
+                            <a href="https://wa.me/5561982258072?text=Ol%C3%A1%2C%20meu%20tratamento%20foi%20negado%20pelo%20plano%20de%20sa%C3%BAde%20e%20preciso%20de%20ajuda%20urgente%21" class="btn-specialty-cta btn-light-cta" target="_blank" rel="noopener noreferrer">
+                                <i data-lucide="message-circle"></i>
+                                <span>CLIQUE AQUI E FALE CONOSCO</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+
+        <!-- Nosso Propósito / Institucional -->
+        <section class="proposito-section">
+            <div class="container proposito-container">
+                <div class="proposito-content-wrapper">
+                    <div class="proposito-text-content text-center reveal">
+                        <span class="section-tag">Nosso Propósito</span>
+                        <h2 class="proposito-title">Promover segurança jurídica por meio de uma advocacia estratégica, ética e comprometida com resultados.</h2>
+                        
+                        
+                        
+                        <!-- Social Card (Tweet UI) -->
+                        <p class="proposito-text">No Pontes Miranda Advogados, compreendemos que cada demanda envolve muito mais do que questões jurídicas. Envolve patrimônio, negócios, relações, reputação e decisões que podem produzir reflexos duradouros na vida de nossos clientes.</p><p class="proposito-text">Por isso, nossa atuação é pautada pelo estudo aprofundado de cada caso, pela construção de estratégias jurídicas consistentes e pela busca de soluções que conciliem segurança jurídica, eficiência e responsabilidade.</p><p class="proposito-text">Mais do que representar interesses em juízo ou prestar consultoria, buscamos estabelecer relações de confiança, oferecendo acompanhamento próximo, orientação qualificada e atuação técnica em todas as etapas da demanda.</p><div class="social-card reveal-scale stagger-1">
+                            <div class="social-card-body">
+                                <!-- Author Header -->
+                                <div class="social-card-header">
+                                    <div class="social-card-author">
+                                        <img src="assets/favicon_preto.png" alt="Pontes Miranda Advogados" class="social-card-avatar">
+                                        <div class="social-card-author-info">
+                                            <h3 class="social-card-name">Pontes Miranda Advogados</h3>
+                                            <p class="social-card-username">@pontesmiranda.adv</p>
+                                        </div>
+                                    </div>
+                                    <button class="social-card-more" aria-label="Mais opções">
+                                        <i data-lucide="more-horizontal"></i>
+                                    </button>
+                                </div>
+                                
+                                <!-- Content -->
+                                <p class="social-card-text">
+                                    Nossa missão é oferecer uma advocacia inteligente, célere e personalizada, transformando desafios complexos em soluções seguras.
+                                </p>
+                                
+                                <!-- Link Preview -->
+                                <div class="social-card-link-preview">
+                                    <div class="link-preview-content">
+                                        <div class="link-preview-icon-box">
+                                            <i data-lucide="link" class="link-preview-icon"></i>
+                                        </div>
+                                        <div class="link-preview-text-box">
+                                            <h4 class="link-preview-title">Pontes Miranda Advogados</h4>
+                                            <p class="link-preview-desc">Advocacia especializada e de alta performance</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Engagement Bar -->
+                                <div class="social-card-engagement">
+                                    <div class="engagement-left">
+                                        <button class="engagement-btn like-btn" id="socialLikeBtn">
+                                            <i data-lucide="heart" class="engagement-icon"></i>
+                                            <span id="socialLikeCount">142</span>
+                                        </button>
+                                        <button class="engagement-btn comment-btn">
+                                            <i data-lucide="message-circle" class="engagement-icon"></i>
+                                            <span>38</span>
+                                        </button>
+                                        <button class="engagement-btn share-btn" id="socialShareBtn">
+                                            <i data-lucide="share-2" class="engagement-icon"></i>
+                                            <span id="socialShareCount">12</span>
+                                        </button>
+                                    </div>
+                                    <button class="engagement-btn bookmark-btn" id="socialBookmarkBtn">
+                                        <i data-lucide="bookmark" class="engagement-icon"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Botão CTA abaixo do Card do Tweet -->
+                        <div class="proposito-cta reveal stagger-2">
+                            <a href="https://wa.me/5561982258072?text=Ol%C3%A1%2C%20preciso%20de%20um%20advogado%21" class="btn-whatsapp-proposito" target="_blank" rel="noopener noreferrer">
+                                <span>FALAR COM UMA ADVOGADA</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quem Somos -->
+        <section id="sobre" class="sobre-section">
+            <div class="container sobre-container">
+                <div class="sobre-grid">
+                    <div class="sobre-image-column reveal-left">
+                        <div class="studio-photo-frame">
+                            <img src="assets/foto_amanda_jessica_sofa.jpg" alt="Drª Amanda Pontes e Drª Jéssica Miranda" class="studio-photo">
+                            <div class="studio-photo-decor"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="sobre-text-column reveal-right">
+                        <span class="section-tag">Sócias Fundadoras</span>
+                        <h2 class="sobre-title">Experiência, estratégia e atuação personalizada.</h2>
+                        <p class="sobre-lead">O Pontes Miranda Advogados foi idealizado e é conduzido por Amanda Pontes e Jéssica Miranda, advogadas que compartilham a convicção de que a excelência jurídica se constrói por meio da técnica, da estratégia e da proximidade com cada cliente.</p>
+                        
+                        <div class="bio-cards">
+                            <div class="bio-card reveal stagger-1">
+                                <h3>Drª Amanda Pontes - OAB/DF 65307</h3>
+                                <p class="bio-subtitle">Sócia Fundadora</p>
+                                <p>Advogada com atuação nas áreas de Direito Empresarial, Direito Tributário, Direito Civil e Direito de Família. Desenvolve assessoria jurídica consultiva e contenciosa com foco na prevenção de riscos, na resolução estratégica de conflitos e na construção de soluções seguras para pessoas físicas e empresas. Pauta sua atuação pela excelência técnica, cordialidade, ética profissional e compromisso com a defesa dos interesses de seus clientes, buscando oferecer soluções jurídicas seguras, personalizadas e alinhadas às particularidades de cada demanda.</p>
+                            </div>
+                            
+                            <div class="bio-card reveal stagger-2">
+                                <h3>Drª Jéssica Miranda - OAB/DF 60395</h3>
+                                <p class="bio-subtitle">Sócia Fundadora</p>
+                                <p>Advogada com atuação nas áreas de Direito Empresarial, Direito Administrativo, Direito Médico, Direito Penal Empresarial e Contencioso Estratégico. Possui experiência na condução de demandas consultivas e judiciais de elevada complexidade, prestando assessoria jurídica a pessoas físicas, empresas e instituições. Sua atuação é marcada pela construção de estratégias jurídicas consistentes, pela análise aprofundada de cada demanda e pela condução firme na defesa dos interesses de seus clientes. Aliando excelência técnica, visão multidisciplinar e planejamento jurídico, atua na prevenção e gestão de riscos, na estruturação de negócios, na gestão de crises e na defesa de profissionais, empresas e instituições, conduzindo cada caso com segurança jurídica, determinação e responsabilidade.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Depoimentos / Avaliações -->
+        
+
+        <!-- Formulário de Contato -->
+        <section id="contato" class="contato-section">
+            <div class="container contato-container">
+                <div class="contato-wrapper">
+                    <div class="contato-info-column reveal-left">
+                        <span class="section-tag">Contato</span>
+                        <h2 class="contato-heading">Deseja falar com uma de nossas advogadas?</h2>
+                        <p class="contato-desc">
+                            Preencha os campos ao lado com as informações básicas do seu caso. Você será direcionado imediatamente ao nosso WhatsApp comercial para iniciar o atendimento.
+                        </p>
+                        
+                        <div class="contato-details">
+                            <div class="details-item">
+                                <div class="details-icon"><i data-lucide="phone"></i></div>
+                                <div>
+                                    <h4>Telefone / WhatsApp</h4>
+                                    <p>(61) 98225-8072 / (61) 99990-5536</p>
+                                </div>
+                            </div>
+                            <div class="details-item">
+                                <div class="details-icon"><i data-lucide="mail"></i></div>
+                                <div>
+                                    <h4>E-mail Oficial</h4>
+                                    <p>contato@pontesmiranda.adv.br</p>
+                                </div>
+                            </div>
+                            <div class="details-item">
+                                <div class="details-icon"><i data-lucide="map-pin"></i></div>
+                                <div>
+                                    <h4>Localização</h4>
+                                    <p>Brasília - DF | Atendimento Digital em todo o país</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contato-form-column reveal-right">
+                        <form id="leadForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Nome Completo *</label>
+                                <input type="text" id="name" name="name" placeholder="Digite seu nome" required="">
+                                <span class="error-msg" id="nameError">Por favor, preencha seu nome.</span>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="whatsapp">WhatsApp / Celular *</label>
+                                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="(61) 99999-9999" required="">
+                                    <span class="error-msg" id="phoneError">Por favor, insira um número válido.</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">E-mail (opcional)</label>
+                                    <input type="email" id="email" name="email" placeholder="nome@exemplo.com">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="service">Área de Interesse *</label>
+                                <select id="service" name="service" required="">
+                                    <option value="" disabled="" selected="">Selecione a área jurídica</option>
+                                    <option value="Cível">Direito Cível (Patrimônio e Obrigações)</option>
+                                    <option value="Família e Sucessões">Direito de Família e Sucessões</option>
+                                    <option value="Empresarial">Direito Empresarial / Societário</option>
+                                    <option value="Tributário">Direito Tributário / Fiscal</option>
+                                    <option value="Criminal">Direito Criminal / Defesa Penal</option>
+                                    <option value="Trabalhista">Direito Trabalhista</option>
+                                    <option value="Outro">Outra questão jurídica</option>
+                                </select>
+                                <span class="error-msg" id="serviceError">Por favor, selecione uma área jurídica.</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Resumo do Caso *</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Descreva brevemente sua necessidade jurídica..." required=""></textarea>
+                                <span class="error-msg" id="messageError">Descreva em poucas palavras o seu caso.</span>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">
+                                Enviar Mensagem via WhatsApp
+                            </button>
+                            <p class="form-disclaimer">* Seus dados estão protegidos sob sigilo profissional de acordo com as normas da OAB e LGPD.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="faq-section">
+            <div class="container faq-container">
+                <div class="section-header text-center reveal">
+                    <span class="section-tag">Perguntas Frequentes</span>
+                    <h2 class="section-title">Respostas para suas principais dúvidas</h2>
+                    <p class="section-subtitle">Entenda de forma clara como funciona o nosso suporte e atendimento jurídico.</p>
+                </div>
+                
+                <div class="faq-list">
+                    <div class="faq-item reveal stagger-1">
+                        <button class="faq-question">
+                            <span>Como funciona o atendimento jurídico à distância (online)?</span>
+                            <i data-lucide="chevron-down" class="faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>O Pontes Miranda Advogados presta atendimento jurídico remoto com o mesmo padrão de excelência, proximidade e segurança adotado nos atendimentos presenciais. As reuniões são realizadas por videoconferência, em ambiente previamente agendado, e toda a documentação é compartilhada por meios eletrônicos seguros.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal stagger-2">
+                        <button class="faq-question">
+                            <span>Como serei informado sobre o andamento do meu processo?</span>
+                            <i data-lucide="chevron-down" class="faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>A comunicação com nossos clientes é pautada pela transparência, pela clareza e pelo acompanhamento contínuo de cada demanda. Mantemos atualizações periódicas sobre o andamento dos processos, com destaque para os atos processuais mais relevantes e para as medidas adotadas pelo escritório. Além disso, disponibilizamos atendimento para esclarecimento de dúvidas e orientações sempre que necessário, assegurando que nossos clientes acompanhem cada etapa da atuação jurídica com segurança, previsibilidade e confiança.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal stagger-3">
+                        <button class="faq-question">
+                            <span>Quais documentos são necessários para a primeira consulta jurídica?</span>
+                            <i data-lucide="chevron-down" class="faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>A documentação necessária varia de acordo com a natureza da demanda. De forma geral, solicitamos um documento oficial de identificação, comprovante de residência e os documentos relacionados ao caso, como contratos, certidões, comunicações, comprovantes ou quaisquer outros elementos que possam contribuir para a análise jurídica. Após o primeiro contato, nossa equipe encaminhará uma relação personalizada dos documentos necessários, permitindo que a consulta seja conduzida com maior objetividade, segurança e aproveitamento técnico.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal stagger-4">
+                        <button class="faq-question">
+                            <span>Quanto custa uma consulta ou a contratação dos serviços jurídicos?</span>
+                            <i data-lucide="chevron-down" class="faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Os honorários advocatícios são definidos de forma individualizada, considerando as particularidades de cada demanda, sua complexidade, o escopo da atuação e as necessidades específicas de cada cliente. Após a análise inicial do caso, apresentamos uma proposta clara e personalizada, construída com transparência e equilíbrio, buscando oferecer uma solução jurídica adequada tanto às características da demanda quanto à realidade de cada cliente.</p>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </section>
+
+    
+</div>

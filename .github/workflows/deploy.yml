@@ -47,16 +47,25 @@ jobs:
           </IfModule>
           EOF
 
+      - name: Tratar e Sanitizar Host FTP
+        id: ftp_config
+        run: |
+          RAW_HOST="${{ secrets.FTP_HOST }}"
+          # Remove prefixos como ftp://, ftps://, https://, barras finais, portas e espaços
+          CLEAN_HOST=$(echo "$RAW_HOST" | sed -e 's|^[a-zA-Z]*://||' -e 's|/.*$||' -e 's|:.*$||' | tr -d '[:space:]')
+          echo "server=$CLEAN_HOST" >> "$GITHUB_OUTPUT"
+          echo "Host sanitizado com sucesso."
+
       - name: Deploy dos Arquivos via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-          server: ${{ secrets.FTP_HOST }}
+          server: ${{ steps.ftp_config.outputs.server }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
           protocol: ftp
           port: 21
           local-dir: dist/
-          server-dir: /
+          server-dir: public_html/
           timeout: 120000
           dangerous-clean-slate: false
           dry-run: false

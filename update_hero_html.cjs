@@ -22,7 +22,7 @@ const newHeroGrid = `
         <p class="hero-text-support">Aliamos conhecimento técnico, visão estratégica e atendimento personalizado para oferecer assessoria jurídica segura, eficiente e orientada às necessidades de cada cliente.</p>
         
         <div class="hero-ctas-container">
-            <a href="https://wa.me/5561982258072?text=Ol%C3%A1%2C%20preciso%20de%20um%20advogado%21" class="btn-whatsapp-hero" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/5561991521044?text=Ol%C3%A1%2C%20preciso%20de%20um%20advogado%21" class="btn-whatsapp-hero" target="_blank" rel="noopener noreferrer">
                 <i data-lucide="message-circle" class="cta-icon-whatsapp"></i>
                 <span>FALAR COM UMA ADVOGADA</span>
             </a>

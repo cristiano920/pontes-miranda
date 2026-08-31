@@ -168,7 +168,7 @@ function sendLeadToWhatsApp(data) {
     // Save lead to Supabase database in background
     saveLead(data).catch(err => console.error('Erro ao salvar no Supabase:', err));
 
-    const targetPhoneNumber = '5561982258072'; // (61) 98225-8072
+    const targetPhoneNumber = '5561991521044'; // (61) 99152-1044
     
     // Create WhatsApp text message
     let messageText = `Olá, gostaria de agendar uma consulta jurídica especializada.\n\n`;

@@ -114,7 +114,7 @@ const heroSection = createSection({
         }),
         createText("<hr style='width:40px; height:3px; background-color:#C59B4E; border:none; margin:15px 0;'>"),
         createText("<p style='font-size:16px; color:#555; line-height:1.6;'>Aliamos conhecimento técnico, visão estratégica e atendimento personalizado para oferecer assessoria jurídica segura, eficiente e orientada às necessidades de cada cliente.</p>"),
-        createButton("FALAR COM UMA ADVOGADA", "https://wa.me/5561982258072?text=Ol%C3%A1%2C%20preciso%20de%20um%20advogado%21", "fab fa-whatsapp", {
+        createButton("FALAR COM UMA ADVOGADA", "https://wa.me/5561991521044?text=Ol%C3%A1%2C%20preciso%20de%20um%20advogado%21", "fab fa-whatsapp", {
             button_type: "success",
             background_color: "#1E2E28",
             button_text_color: "#FFFFFF",
@@ -194,7 +194,7 @@ const fraudeSection = createSection({
         createHeading("🛡️ DIREITO BANCÁRIO", "h5", "left", { title_color: "#C59B4E" }),
         createHeading("Foi vítima de fraude ou golpe bancário?", "h2", "left", { title_color: "#FFFFFF" }),
         createText("<p style='color:#b8c4bf;'>Golpe do PIX, falsa central de atendimento, falso funcionário, empréstimo não contratado ou invasão de conta podem causar prejuízos significativos em poucos minutos.<br><br>Dependendo das circunstâncias da fraude e das falhas de segurança identificadas, é possível buscar judicialmente a recuperação dos valores e a proteção do seu patrimônio.</p><ul><li style='color:#fff;'>✔️ Recuperação de valores em casos de fraude bancária</li><li style='color:#fff;'>✔️ Contestação de empréstimos, cartões e operações não reconhecidas</li><li style='color:#fff;'>✔️ Bloqueio ou suspensão de cobranças indevidas</li><li style='color:#fff;'>✔️ Medidas judiciais urgentes para reduzir ou impedir novos prejuízos</li></ul>"),
-        createButton("CLIQUE AQUI E FALE CONOSCO", "https://wa.me/5561982258072?text=Ol%C3%A1%2C%20fui%20v%C3%ADtima%20de%20fraude%20banc%C3%A1ria%20e%20preciso%20de%20ajuda%20jur%C3%ADdica%21", "fab fa-whatsapp", {
+        createButton("CLIQUE AQUI E FALE CONOSCO", "https://wa.me/5561991521044?text=Ol%C3%A1%2C%20fui%20v%C3%ADtima%20de%20fraude%20banc%C3%A1ria%20e%20preciso%20de%20ajuda%20jur%C3%ADdica%21", "fab fa-whatsapp", {
             background_color: "#27AE60"
         })
     ]),
@@ -217,7 +217,7 @@ const saudeSection = createSection({
         createHeading("🩺 DIREITO À SAÚDE &amp; TUTELA DE URGÊNCIA", "h5", "left", { title_color: "#C59B4E" }),
         createHeading("Teve seu tratamento ou cirurgia negados?", "h2", "left", { title_color: "#161616" }),
         createText("<p style='color:#555;'>Se o plano de saúde ou o SUS negou cirurgia, medicamento, tratamento, exame ou internação, uma medida judicial urgente pode ser necessária para garantir o acesso à assistência indicada pelo seu médico.<br><br>Atuamos em casos de negativas de cobertura e situações que não podem esperar.</p><ul><li style='color:#161616;'>✔️ Liminar para liberação urgente de cirurgias e tratamentos</li><li style='color:#161616;'>✔️ Medicamentos de alto custo e tratamentos oncológicos</li><li style='color:#161616;'>✔️ Internações, exames e procedimentos negados</li></ul>"),
-        createButton("CLIQUE AQUI E FALE CONOSCO", "https://wa.me/5561982258072?text=Ol%C3%A1%2C%20meu%20tratamento%20foi%20negado%20pelo%20plano%20de%20sa%C3%BAde%20e%20preciso%20de%20ajuda%20urgente%21", "fab fa-whatsapp", {
+        createButton("CLIQUE AQUI E FALE CONOSCO", "https://wa.me/5561991521044?text=Ol%C3%A1%2C%20meu%20tratamento%20foi%20negado%20pelo%20plano%20de%20sa%C3%BAde%20e%20preciso%20de%20ajuda%20urgente%21", "fab fa-whatsapp", {
             background_color: "#1E2E28"
         })
     ])
@@ -234,7 +234,7 @@ const propositoSection = createSection({
         createHeading("Nosso Propósito", "h4", "center", { title_color: "#C59B4E" }),
         createHeading("Promover segurança jurídica por meio de uma advocacia estratégica, ética e comprometida com resultados.", "h2", "center", { title_color: "#161616" }),
         createText("<p style='text-align:center; max-width:800px; margin:20px auto; color:#555;'>No Pontes Miranda Advogados, compreendemos que cada demanda envolve muito mais do que questões jurídicas. Envolve patrimônio, negócios, relações, reputação e decisões que podem produzir reflexos duradouros na vida de nossos clientes.</p>"),
-        createButton("FALAR COM UMA ADVOGADA", "https://wa.me/5561982258072?text=Ol%C3%A1%2C%20preciso%20de%20um%20advogado%21", "fab fa-whatsapp", {
+        createButton("FALAR COM UMA ADVOGADA", "https://wa.me/5561991521044?text=Ol%C3%A1%2C%20preciso%20de%20um%20advogado%21", "fab fa-whatsapp", {
             background_color: "#27AE60"
         })
     ])

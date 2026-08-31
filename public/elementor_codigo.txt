@@ -2800,7 +2800,7 @@ section {
         <p class="hero-text-support">Aliamos conhecimento técnico, visão estratégica e atendimento personalizado para oferecer assessoria jurídica segura, eficiente e orientada às necessidades de cada cliente.</p>
 
         <div class="hero-ctas-container">
-            <a href="https://wa.me/5561982258072?text=Ol%C3%A1%2C%20preciso%20de%20um%20advogado%21" class="btn-whatsapp-hero" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/5561991521044?text=Ol%C3%A1%2C%20preciso%20de%20um%20advogado%21" class="btn-whatsapp-hero" target="_blank" rel="noopener noreferrer">
                 <i data-lucide="message-circle" class="cta-icon-whatsapp"></i>
                 <span>FALAR COM UMA ADVOGADA</span>
             </a>
@@ -2946,7 +2946,7 @@ section {
                         </ul>
 
                         <div class="specialty-cta-btn-wrapper">
-                            <a href="https://wa.me/5561982258072?text=Ol%C3%A1%2C%20fui%20v%C3%ADtima%20de%20fraude%20banc%C3%A1ria%20e%20preciso%20de%20ajuda%20jur%C3%ADdica%21" class="btn-specialty-cta btn-dark-cta" target="_blank" rel="noopener noreferrer">
+                            <a href="https://wa.me/5561991521044?text=Ol%C3%A1%2C%20fui%20v%C3%ADtima%20de%20fraude%20banc%C3%A1ria%20e%20preciso%20de%20ajuda%20jur%C3%ADdica%21" class="btn-specialty-cta btn-dark-cta" target="_blank" rel="noopener noreferrer">
                                 <i data-lucide="message-circle"></i>
                                 <span>CLIQUE AQUI E FALE CONOSCO</span>
                             </a>
@@ -3008,7 +3008,7 @@ section {
                         </ul>
 
                         <div class="specialty-cta-btn-wrapper">
-                            <a href="https://wa.me/5561982258072?text=Ol%C3%A1%2C%20meu%20tratamento%20foi%20negado%20pelo%20plano%20de%20sa%C3%BAde%20e%20preciso%20de%20ajuda%20urgente%21" class="btn-specialty-cta btn-light-cta" target="_blank" rel="noopener noreferrer">
+                            <a href="https://wa.me/5561991521044?text=Ol%C3%A1%2C%20meu%20tratamento%20foi%20negado%20pelo%20plano%20de%20sa%C3%BAde%20e%20preciso%20de%20ajuda%20urgente%21" class="btn-specialty-cta btn-light-cta" target="_blank" rel="noopener noreferrer">
                                 <i data-lucide="message-circle"></i>
                                 <span>CLIQUE AQUI E FALE CONOSCO</span>
                             </a>
@@ -3089,7 +3089,7 @@ section {
                         
                         <!-- Botão CTA abaixo do Card do Tweet -->
                         <div class="proposito-cta reveal stagger-2">
-                            <a href="https://wa.me/5561982258072?text=Ol%C3%A1%2C%20preciso%20de%20um%20advogado%21" class="btn-whatsapp-proposito" target="_blank" rel="noopener noreferrer">
+                            <a href="https://wa.me/5561991521044?text=Ol%C3%A1%2C%20preciso%20de%20um%20advogado%21" class="btn-whatsapp-proposito" target="_blank" rel="noopener noreferrer">
                                 <span>FALAR COM UMA ADVOGADA</span>
                             </a>
                         </div>
@@ -3152,7 +3152,7 @@ section {
                                 <div class="details-icon"><i data-lucide="phone"></i></div>
                                 <div>
                                     <h4>Telefone / WhatsApp</h4>
-                                    <p>(61) 98225-8072 / (61) 99990-5536</p>
+                                    <p>(61) 99152-1044</p>
                                 </div>
                             </div>
                             <div class="details-item">

@@ -163,7 +163,7 @@ sections.push(section({
             <a href="#areas" style="color:#fff; text-decoration:none;">Áreas de Atuação</a>
             <a href="#sobre" style="color:#fff; text-decoration:none;">Quem Somos</a>
             <a href="#faq" style="color:#fff; text-decoration:none;">Dúvidas</a>
-            <a href="https://wa.me/5561982258072" target="_blank" style="background:#ffffff; color:#111; padding:8px 18px; border-radius:8px; font-weight:600; text-decoration:none;">📅 Falar com uma advogada</a>
+            <a href="https://wa.me/5561991521044" target="_blank" style="background:#ffffff; color:#111; padding:8px 18px; border-radius:8px; font-weight:600; text-decoration:none;">📅 Falar com uma advogada</a>
         </div>
         `)
     ])
@@ -182,7 +182,7 @@ sections.push(section({
         text("Aliamos conhecimento técnico, visão estratégica e atendimento personalizado para oferecer assessoria jurídica segura, eficiente e orientada às necessidades de cada cliente.", "#555555", "15"),
         htmlWidget(`
         <div style="display:flex; gap:12px; margin-top:20px; flex-wrap:wrap;">
-            <a href="https://wa.me/5561982258072?text=Ol%C3%A1%2C%20preciso%20de%20um%20advogado%21" target="_blank" style="background:#1e2e28; color:#fff; padding:14px 24px; border-radius:10px; font-weight:700; font-size:12px; text-decoration:none; display:inline-flex; align-items:center; gap:8px;">
+            <a href="https://wa.me/5561991521044?text=Ol%C3%A1%2C%20preciso%20de%20um%20advogado%21" target="_blank" style="background:#1e2e28; color:#fff; padding:14px 24px; border-radius:10px; font-weight:700; font-size:12px; text-decoration:none; display:inline-flex; align-items:center; gap:8px;">
                 💬 FALAR COM UMA ADVOGADA
             </a>
             <a href="#contato" style="background:#eae1d3; color:#222; border:1px solid #dcd2c3; padding:14px 20px; border-radius:10px; font-weight:700; font-size:12px; text-decoration:none; display:inline-flex; align-items:center; gap:8px;">
@@ -290,7 +290,7 @@ sections.push(section({
             <li><span>✓</span> Medidas judiciais urgentes para reduzir ou impedir novos prejuízos</li>
         </ul>
         `),
-        button("CLIQUE AQUI E FALE CONOSCO", "https://wa.me/5561982258072?text=Ol%C3%A1%2C%20fui%20v%C3%ADtima%20de%20fraude%20banc%C3%A1ria%20e%20preciso%20de%20ajuda%20jur%C3%ADdica%21", "#27ae60", "#ffffff")
+        button("CLIQUE AQUI E FALE CONOSCO", "https://wa.me/5561991521044?text=Ol%C3%A1%2C%20fui%20v%C3%ADtima%20de%20fraude%20banc%C3%A1ria%20e%20preciso%20de%20ajuda%20jur%C3%ADdica%21", "#27ae60", "#ffffff")
     ]),
     column("45", [
         image("https://pontes-miranda.vercel.app/assets/bank_fraud_law-o2Y4S3Nj.jpg")
@@ -317,7 +317,7 @@ sections.push(section({
             <li style="color:#161616;"><span style="color:#c59b4e;">✓</span> Internações, exames e procedimentos negados</li>
         </ul>
         `),
-        button("CLIQUE AQUI E FALE CONOSCO", "https://wa.me/5561982258072?text=Ol%C3%A1%2C%20meu%20tratamento%20foi%20negado%20pelo%20plano%20de%20sa%C3%BAde%20e%20preciso%20de%20ajuda%20urgente%21", "#1e2e28", "#ffffff")
+        button("CLIQUE AQUI E FALE CONOSCO", "https://wa.me/5561991521044?text=Ol%C3%A1%2C%20meu%20tratamento%20foi%20negado%20pelo%20plano%20de%20sa%C3%BAde%20e%20preciso%20de%20ajuda%20urgente%21", "#1e2e28", "#ffffff")
     ])
 ]));
 
@@ -331,7 +331,7 @@ sections.push(section({
         heading("NOSSO PROPÓSITO", "h5", "center", "#c59b4e", "12", "Plus Jakarta Sans"),
         heading("Promover segurança jurídica por meio de uma advocacia estratégica, ética e comprometida com resultados.", "h2", "center", "#161616", "32"),
         text("<p style='text-align:center; max-width:800px; margin:20px auto 40px auto; color:#555;'>No Pontes Miranda Advogados, compreendemos que cada demanda envolve muito mais do que questões jurídicas. Envolve patrimônio, negócios, relações, reputação e decisões que podem produzir reflexos duradouros na vida de nossos clientes.</p>", "#555555", "16", "center"),
-        button("FALAR COM UMA ADVOGADA", "https://wa.me/5561982258072?text=Ol%C3%A1%2C%20preciso%20de%20um%20advogado%21", "#27ae60", "#ffffff", "center")
+        button("FALAR COM UMA ADVOGADA", "https://wa.me/5561991521044?text=Ol%C3%A1%2C%20preciso%20de%20um%20advogado%21", "#27ae60", "#ffffff", "center")
     ])
 ]));
 
@@ -377,7 +377,7 @@ sections.push(section({
         <div style="display:flex; flex-direction:column; gap:20px;">
             <div style="display:flex; gap:15px; align-items:center;">
                 <div style="width:40px; height:40px; background:#f5f0e6; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#c59b4e; font-size:18px;">📞</div>
-                <div><strong style="display:block; font-size:14px;">Telefone / WhatsApp</strong><span style="font-size:13px; color:#666;">(61) 98225-8072 / (61) 99990-5536</span></div>
+                <div><strong style="display:block; font-size:14px;">Telefone / WhatsApp</strong><span style="font-size:13px; color:#666;">(61) 99152-1044</span></div>
             </div>
             <div style="display:flex; gap:15px; align-items:center;">
                 <div style="width:40px; height:40px; background:#f5f0e6; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#c59b4e; font-size:18px;">✉️</div>
@@ -394,7 +394,7 @@ sections.push(section({
         htmlWidget(`
         <div class="pm-form-box">
             <h3 style="font-family:'Playfair Display',serif; font-size:22px; margin-bottom:20px; color:#161616;">Fale Conosco via WhatsApp</h3>
-            <form action="https://wa.me/5561982258072" target="_blank">
+            <form action="https://wa.me/5561991521044" target="_blank">
                 <input type="text" class="pm-input" placeholder="Seu Nome Completo *" required>
                 <input type="tel" class="pm-input" placeholder="WhatsApp com DDD *" required>
                 <select class="pm-input" required>

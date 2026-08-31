@@ -40,7 +40,7 @@ if ($('#fraude-bancaria').length === 0) {
                         </ul>
 
                         <div class="specialty-cta-btn-wrapper">
-                            <a href="https://wa.me/5561982258072?text=Ol%C3%A1%2C%20fui%20v%C3%ADtima%20de%20fraude%20banc%C3%A1ria%20e%20preciso%20de%20ajuda%20jur%C3%ADdica%21" 
+                            <a href="https://wa.me/5561991521044?text=Ol%C3%A1%2C%20fui%20v%C3%ADtima%20de%20fraude%20banc%C3%A1ria%20e%20preciso%20de%20ajuda%20jur%C3%ADdica%21" 
                                class="btn-specialty-cta btn-dark-cta" 
                                target="_blank" 
                                rel="noopener noreferrer">
@@ -105,7 +105,7 @@ if ($('#fraude-bancaria').length === 0) {
                         </ul>
 
                         <div class="specialty-cta-btn-wrapper">
-                            <a href="https://wa.me/5561982258072?text=Ol%C3%A1%2C%20meu%20tratamento%20foi%20negado%20pelo%20plano%20de%20sa%C3%BAde%20e%20preciso%20de%20ajuda%20urgente%21" 
+                            <a href="https://wa.me/5561991521044?text=Ol%C3%A1%2C%20meu%20tratamento%20foi%20negado%20pelo%20plano%20de%20sa%C3%BAde%20e%20preciso%20de%20ajuda%20urgente%21" 
                                class="btn-specialty-cta btn-light-cta" 
                                target="_blank" 
                                rel="noopener noreferrer">

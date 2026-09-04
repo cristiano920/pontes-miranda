@@ -168,9 +168,7 @@ function initContactForm() {
                 nome: name ? name.value.trim() : '',
                 whatsapp: whatsapp ? whatsapp.value.trim() : '',
                 email: (email && email.value.trim()) ? email.value.trim() : 'Não informado',
-                plano: healthPlan ? healthPlan.value : 'Não informado',
-                servico: service ? service.value : 'Negativa Geral',
-                urgencia: urgency ? urgency.value : 'Sim',
+                servico: service ? service.value : 'Negativa de Plano de Saúde',
                 mensagem: message ? message.value.trim() : ''
             });
         }
@@ -184,7 +182,7 @@ function sendLeadToWhatsApp(data) {
         nome: data.nome,
         whatsapp: data.whatsapp,
         email: data.email,
-        servico: `Negativa: ${data.servico} | Plano: ${data.plano} | Urgência: ${data.urgencia}`,
+        servico: data.servico,
         mensagem: data.mensagem
     }).catch(err => console.error('Erro ao salvar no Supabase:', err));
 
@@ -195,13 +193,11 @@ function sendLeadToWhatsApp(data) {
     messageText += `*DADOS DO MEU CASO:*\n`;
     messageText += `• *Nome:* ${data.nome}\n`;
     messageText += `• *WhatsApp:* ${data.whatsapp}\n`;
-    messageText += `• *Operadora:* ${data.plano}\n`;
-    messageText += `• *Procedimento Negado:* ${data.servico}\n`;
-    messageText += `• *Urgência Médica:* ${data.urgencia}\n`;
     if (data.email && data.email !== 'Não informado') {
         messageText += `• *E-mail:* ${data.email}\n`;
     }
-    messageText += `\n*RESUMO DA SITUAÇÃO:*\n${data.mensagem}`;
+    messageText += `• *Tipo de Negativa:* ${data.servico}\n\n`;
+    messageText += `*RESUMO DA SITUAÇÃO:*\n${data.mensagem}`;
     
     const encodedMessage = encodeURIComponent(messageText);
     const whatsappUrl = `https://wa.me/${targetPhoneNumber}?text=${encodedMessage}`;

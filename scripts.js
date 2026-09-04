@@ -92,22 +92,24 @@ function initContactForm() {
     if (!form) return;
 
     // Apply input mask for WhatsApp phone: (XX) XXXXX-XXXX
-    phoneInput.addEventListener('input', (e) => {
-        let value = e.target.value.replace(/\D/g, '');
-        let formatted = '';
-        
-        if (value.length > 0) {
-            formatted = '(' + value.substring(0, 2);
-            if (value.length > 2) {
-                formatted += ') ' + value.substring(2, 7);
+    if (phoneInput) {
+        phoneInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            let formatted = '';
+            
+            if (value.length > 0) {
+                formatted = '(' + value.substring(0, 2);
+                if (value.length > 2) {
+                    formatted += ') ' + value.substring(2, 7);
+                }
+                if (value.length > 7) {
+                    formatted += '-' + value.substring(7, 11);
+                }
             }
-            if (value.length > 7) {
-                formatted += '-' + value.substring(7, 11);
-            }
-        }
-        
-        e.target.value = formatted;
-    });
+            
+            e.target.value = formatted;
+        });
+    }
 
     // Form submission
     form.addEventListener('submit', (e) => {
@@ -118,7 +120,9 @@ function initContactForm() {
         const name = document.getElementById('name');
         const whatsapp = document.getElementById('whatsapp');
         const email = document.getElementById('email');
+        const healthPlan = document.getElementById('healthPlan');
         const service = document.getElementById('service');
+        const urgency = document.getElementById('urgency');
         const message = document.getElementById('message');
         
         // Reset previous validation styles
@@ -127,37 +131,47 @@ function initContactForm() {
         });
 
         // Validate Name
-        if (name.value.trim() === '') {
+        if (name && name.value.trim() === '') {
             name.parentElement.classList.add('invalid');
             isValid = false;
         }
 
         // Validate WhatsApp (checks length of numbers in formatted string)
-        const rawPhone = whatsapp.value.replace(/\D/g, '');
-        if (rawPhone.length < 10 || rawPhone.length > 11) {
-            whatsapp.parentElement.classList.add('invalid');
+        if (whatsapp) {
+            const rawPhone = whatsapp.value.replace(/\D/g, '');
+            if (rawPhone.length < 10 || rawPhone.length > 11) {
+                whatsapp.parentElement.classList.add('invalid');
+                isValid = false;
+            }
+        }
+
+        // Validate Health Plan Selection
+        if (healthPlan && healthPlan.value === '') {
+            healthPlan.parentElement.classList.add('invalid');
             isValid = false;
         }
 
         // Validate Service Selection
-        if (service.value === '') {
+        if (service && service.value === '') {
             service.parentElement.classList.add('invalid');
             isValid = false;
         }
 
         // Validate Case Message
-        if (message.value.trim() === '') {
+        if (message && message.value.trim() === '') {
             message.parentElement.classList.add('invalid');
             isValid = false;
         }
 
         if (isValid) {
             sendLeadToWhatsApp({
-                nome: name.value.trim(),
-                whatsapp: whatsapp.value.trim(),
-                email: email.value.trim() || 'Não informado',
-                servico: service.value,
-                mensagem: message.value.trim()
+                nome: name ? name.value.trim() : '',
+                whatsapp: whatsapp ? whatsapp.value.trim() : '',
+                email: (email && email.value.trim()) ? email.value.trim() : 'Não informado',
+                plano: healthPlan ? healthPlan.value : 'Não informado',
+                servico: service ? service.value : 'Negativa Geral',
+                urgencia: urgency ? urgency.value : 'Sim',
+                mensagem: message ? message.value.trim() : ''
             });
         }
     });
@@ -166,18 +180,28 @@ function initContactForm() {
 // Format and redirect lead to WhatsApp
 function sendLeadToWhatsApp(data) {
     // Save lead to Supabase database in background
-    saveLead(data).catch(err => console.error('Erro ao salvar no Supabase:', err));
+    saveLead({
+        nome: data.nome,
+        whatsapp: data.whatsapp,
+        email: data.email,
+        servico: `Negativa: ${data.servico} | Plano: ${data.plano} | Urgência: ${data.urgencia}`,
+        mensagem: data.mensagem
+    }).catch(err => console.error('Erro ao salvar no Supabase:', err));
 
     const targetPhoneNumber = '5561991521044'; // (61) 99152-1044
     
-    // Create WhatsApp text message
-    let messageText = `Olá, gostaria de agendar uma consulta jurídica especializada.\n\n`;
-    messageText += `*DADOS DO FORMULÁRIO:*\n`;
+    // Create WhatsApp text message structured
+    let messageText = `Olá! Vim pelo site e preciso de um advogado para negativa do plano de saúde.\n\n`;
+    messageText += `*DADOS DO MEU CASO:*\n`;
     messageText += `• *Nome:* ${data.nome}\n`;
     messageText += `• *WhatsApp:* ${data.whatsapp}\n`;
-    messageText += `• *E-mail:* ${data.email}\n`;
-    messageText += `• *Área de Interesse:* ${data.servico}\n\n`;
-    messageText += `*RESUMO DO CASO:*\n${data.mensagem}`;
+    messageText += `• *Operadora:* ${data.plano}\n`;
+    messageText += `• *Procedimento Negado:* ${data.servico}\n`;
+    messageText += `• *Urgência Médica:* ${data.urgencia}\n`;
+    if (data.email && data.email !== 'Não informado') {
+        messageText += `• *E-mail:* ${data.email}\n`;
+    }
+    messageText += `\n*RESUMO DA SITUAÇÃO:*\n${data.mensagem}`;
     
     const encodedMessage = encodeURIComponent(messageText);
     const whatsappUrl = `https://wa.me/${targetPhoneNumber}?text=${encodedMessage}`;
@@ -187,18 +211,20 @@ function sendLeadToWhatsApp(data) {
     const loadingBar = document.getElementById('modalLoadingBar');
     const manualLink = document.getElementById('modalDirectLink');
     
-    manualLink.href = whatsappUrl;
-    modal.classList.add('active');
+    if (manualLink) manualLink.href = whatsappUrl;
+    if (modal) modal.classList.add('active');
     
     // Trigger loading bar width change (CSS handles transition)
-    setTimeout(() => {
-        loadingBar.style.width = '100%';
-    }, 100);
+    if (loadingBar) {
+        setTimeout(() => {
+            loadingBar.style.width = '100%';
+        }, 100);
+    }
     
-    // Auto redirect after 3 seconds
+    // Auto redirect after 2.5 seconds
     setTimeout(() => {
         window.open(whatsappUrl, '_blank');
-    }, 3000);
+    }, 2500);
 }
 
 // Social Card interaction

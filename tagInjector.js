@@ -75,6 +75,14 @@ function injectScripts(scripts) {
             return;
         }
 
+        // Se for GTM e já estiver declarado de forma estática no documento, não reinjeta
+        if (scriptItem.code && scriptItem.code.includes('googletagmanager.com/gtm.js') && document.querySelector('script[src*="googletagmanager.com/gtm.js"]')) {
+            return;
+        }
+        if (scriptItem.code && scriptItem.code.includes('googletagmanager.com/ns.html') && document.querySelector('iframe[src*="googletagmanager.com/ns.html"]')) {
+            return;
+        }
+
         const container = document.createElement('div');
         container.id = markerId;
         container.style.display = 'none';

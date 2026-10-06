@@ -17,6 +17,8 @@ export default defineConfig({
             req.url = '/painel/index.html' + (search ? '?' + search : '');
           } else if (cleanPath === '/links') {
             req.url = '/links/index.html' + (search ? '?' + search : '');
+          } else if (cleanPath === '/home2') {
+            req.url = '/home2.html' + (search ? '?' + search : '');
           }
 
           next();
@@ -28,6 +30,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
+        home2: resolve(__dirname, 'home2.html'),
         links: resolve(__dirname, 'links/index.html'),
         painel: resolve(__dirname, 'painel/index.html'),
         painelAdmin: resolve(__dirname, 'painel/admin/index.html'),

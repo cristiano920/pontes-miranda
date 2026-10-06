@@ -30,11 +30,13 @@ function initNavbar() {
     });
 }
 
-// 2. Menu Mobile Toggle
+// 2. Menu Mobile Toggle & Dropdown
 function initMobileMenu() {
     const mobileToggle = document.getElementById('pmMobileToggle');
     const navMenu = document.getElementById('pmNavMenu');
-    const navLinks = document.querySelectorAll('.pm-nav-link');
+    const navLinks = document.querySelectorAll('.pm-nav-link:not(.pm-dropdown-toggle), .pm-dropdown-item');
+    const dropdownToggle = document.querySelector('.pm-dropdown-toggle');
+    const dropdownContainer = document.querySelector('.pm-nav-dropdown');
 
     if (!mobileToggle || !navMenu) return;
 
@@ -49,9 +51,19 @@ function initMobileMenu() {
         if (window.lucide) lucide.createIcons();
     });
 
+    if (dropdownToggle && dropdownContainer) {
+        dropdownToggle.addEventListener('click', (e) => {
+            if (window.innerWidth <= 860) {
+                e.preventDefault();
+                dropdownContainer.classList.toggle('active-mobile');
+            }
+        });
+    }
+
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
+            if (dropdownContainer) dropdownContainer.classList.remove('active-mobile');
             const icon = mobileToggle.querySelector('i');
             if (icon) {
                 icon.setAttribute('data-lucide', 'menu');

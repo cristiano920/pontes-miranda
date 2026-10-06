@@ -53,8 +53,43 @@
 
                 <nav class="pm-nav-menu" id="pmNavMenu">
                     <a href="#inicio" class="pm-nav-link">Início</a>
-                    <a href="#casos" class="pm-nav-link">Casos Atendidos</a>
                     <a href="#como-agir" class="pm-nav-link">Como Agir</a>
+                    <div class="pm-nav-dropdown">
+                        <a href="#areas" class="pm-nav-link pm-dropdown-toggle">
+                            <span>Áreas de Atuação</span>
+                            <i data-lucide="chevron-down" class="pm-dropdown-icon"></i>
+                        </a>
+                        <div class="pm-dropdown-menu">
+                            <a href="#area-saude" class="pm-dropdown-item">
+                                <i data-lucide="activity"></i>
+                                <span>Direito à Saúde</span>
+                            </a>
+                            <a href="#area-civel" class="pm-dropdown-item">
+                                <i data-lucide="scale"></i>
+                                <span>Direito Cível</span>
+                            </a>
+                            <a href="#area-familia" class="pm-dropdown-item">
+                                <i data-lucide="users"></i>
+                                <span>Família e Sucessões</span>
+                            </a>
+                            <a href="#area-empresarial" class="pm-dropdown-item">
+                                <i data-lucide="briefcase"></i>
+                                <span>Direito Empresarial</span>
+                            </a>
+                            <a href="#area-tributario" class="pm-dropdown-item">
+                                <i data-lucide="receipt"></i>
+                                <span>Direito Tributário</span>
+                            </a>
+                            <a href="#area-criminal" class="pm-dropdown-item">
+                                <i data-lucide="shield"></i>
+                                <span>Direito Criminal</span>
+                            </a>
+                            <a href="#area-trabalhista" class="pm-dropdown-item">
+                                <i data-lucide="file-text"></i>
+                                <span>Direito Trabalhista</span>
+                            </a>
+                        </div>
+                    </div>
                     <a href="#direitos" class="pm-nav-link">Seus Direitos</a>
                     <a href="#sobre" class="pm-nav-link">Quem Somos</a>
                     <a href="#faq" class="pm-nav-link">Dúvidas</a>
@@ -90,7 +125,7 @@
 
                         <h1 class="pm-hero-title">
                             O plano de saúde negou seu tratamento, cirurgia ou remédio?<br>
-                            <span class="gold-text">Buscamos sua liminar.</span>
+                            <span class="gold-text">Avaliamos a negativa e adotamos as medidas cabíveis com urgência.</span>
                         </h1>
 
                         <div class="pm-hero-gold-line"></div>
@@ -130,10 +165,7 @@
                             </a>
                         </div>
 
-                        <div class="pm-hero-microcopy">
-                            <i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i>
-                            <span>Atendimento individualizado e resposta ágil com sigilo profissional garantido.</span>
-                        </div>
+                        
                     </div>
 
                     <!-- Coluna Visual / Foto Sócias -->
@@ -157,144 +189,7 @@
         </section>
 
         <!-- ==========================================================================
-             SEÇÃO 2: SITUAÇÕES ATENDIDAS / ESPECIALIDADES (GRID EXPANDIDO)
-             ========================================================================== -->
-        <section id="casos" class="pm-specialties-section">
-            <div class="pm-container">
-                <div class="section-header text-center">
-                    <span class="section-tag">Casos Que Resolvemos</span>
-                    <h2 class="section-title">Negativas e Conflitos Atendidos</h2>
-                    <p class="section-subtitle">
-                        Identifique abaixo a recusa ou violação praticada pelo plano de saúde. Atuamos com medidas liminares de urgência e ações ordinárias em todo o território nacional.
-                    </p>
-                </div>
-
-                <div class="pm-specialties-grid">
-                    <!-- Card 1 -->
-                    <div class="pm-specialty-card">
-                        <div class="pm-specialty-icon-box">
-                            <i data-lucide="scissors"></i>
-                        </div>
-                        <h3 class="pm-specialty-title">Cirurgias e OPME</h3>
-                        <p class="pm-specialty-desc">
-                            Recusa de cirurgias robóticas, bariátricas reparadoras, cardíacas, oncológicas ou recusa de materiais essenciais (próteses, órteses e stents).
-                        </p>
-                        <a href="https://wa.me/5561991521044?text=Ol%C3%A1%21%20Tive%20uma%20cirurgia%20ou%20pr%C3%B3tese%20recusada%20pelo%20plano" class="pm-specialty-link" target="_blank" rel="noopener noreferrer">
-                            <span>Consultar este caso</span>
-                            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
-                        </a>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="pm-specialty-card">
-                        <div class="pm-specialty-icon-box">
-                            <i data-lucide="pill"></i>
-                        </div>
-                        <h3 class="pm-specialty-title">Medicamentos de Alto Custo</h3>
-                        <p class="pm-specialty-desc">
-                            Remédios oncológicos orais, imunoterapia, terapias-alvo ou drogas de alto custo negadas sob a alegação abusiva de estarem "fora do Rol da ANS".
-                        </p>
-                        <a href="https://wa.me/5561991521044?text=Ol%C3%A1%21%20O%20plano%20negou%20um%20medicamento%20de%20alto%20custo" class="pm-specialty-link" target="_blank" rel="noopener noreferrer">
-                            <span>Consultar este caso</span>
-                            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
-                        </a>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="pm-specialty-card">
-                        <div class="pm-specialty-icon-box">
-                            <i data-lucide="puzzle"></i>
-                        </div>
-                        <h3 class="pm-specialty-title">Terapias TEA (Método ABA)</h3>
-                        <p class="pm-specialty-desc">
-                            Garantia de cobertura multidisciplinar completa para Transtorno do Espectro Autista (ABA, fonoaudiologia, T.O.) sem limitação de sessões.
-                        </p>
-                        <a href="https://wa.me/5561991521044?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20com%20terapias%20para%20autismo%20TEA%2FABA" class="pm-specialty-link" target="_blank" rel="noopener noreferrer">
-                            <span>Consultar este caso</span>
-                            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
-                        </a>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="pm-specialty-card">
-                        <div class="pm-specialty-icon-box">
-                            <i data-lucide="activity"></i>
-                        </div>
-                        <h3 class="pm-specialty-title">Internação em UTI & Home Care</h3>
-                        <p class="pm-specialty-desc">
-                            Liberação imediata de leitos hospitalares em regime de urgência e implantação de suporte médico e de enfermagem domiciliar (Home Care contínuo).
-                        </p>
-                        <a href="https://wa.me/5561991521044?text=Ol%C3%A1%21%20Preciso%20de%20liminar%20para%20interna%C3%A7%C3%A3o%20em%20UTI%20ou%20Home%20Care" class="pm-specialty-link" target="_blank" rel="noopener noreferrer">
-                            <span>Consultar este caso</span>
-                            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
-                        </a>
-                    </div>
-
-                    <!-- Card 5 -->
-                    <div class="pm-specialty-card">
-                        <div class="pm-specialty-icon-box">
-                            <i data-lucide="user-x"></i>
-                        </div>
-                        <h3 class="pm-specialty-title">Cancelamento Unilateral</h3>
-                        <p class="pm-specialty-desc">
-                            Rescisão arbitrária de contratos individuais ou falsos coletivos (PME), especialmente quando há beneficiário em tratamento continuado de saúde.
-                        </p>
-                        <a href="https://wa.me/5561991521044?text=Ol%C3%A1%21%20O%20plano%20de%20sa%C3%BAde%20cancelou%20meu%20contrato%20indevidamente" class="pm-specialty-link" target="_blank" rel="noopener noreferrer">
-                            <span>Consultar este caso</span>
-                            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
-                        </a>
-                    </div>
-
-                    <!-- Card 6 -->
-                    <div class="pm-specialty-card">
-                        <div class="pm-specialty-icon-box">
-                            <i data-lucide="trending-up"></i>
-                        </div>
-                        <h3 class="pm-specialty-title">Reajustes Abusivos</h3>
-                        <p class="pm-specialty-desc">
-                            Aumentos desproporcionais por mudança de faixa etária (aos 59 anos) ou aumentos anuais sem demonstração de cálculo em planos coletivos por adesão.
-                        </p>
-                        <a href="https://wa.me/5561991521044?text=Ol%C3%A1%21%20Recebi%20um%20reajuste%20abusivo%20no%20meu%20plano%20de%20sa%C3%BAde" class="pm-specialty-link" target="_blank" rel="noopener noreferrer">
-                            <span>Consultar este caso</span>
-                            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
-                        </a>
-                    </div>
-
-                    <!-- Card 7 -->
-                    <div class="pm-specialty-card">
-                        <div class="pm-specialty-icon-box">
-                            <i data-lucide="banknote"></i>
-                        </div>
-                        <h3 class="pm-specialty-title">Reembolso Integral de Custos</h3>
-                        <p class="pm-specialty-desc">
-                            Recuperação dos valores particulares desembolsados pelo paciente quando o convênio negou injustamente ou demorou a autorizar o procedimento.
-                        </p>
-                        <a href="https://wa.me/5561991521044?text=Ol%C3%A1%21%20Paguei%20despesas%20m%C3%A9dicas%20particulares%20e%20quero%20reembolso%20integral" class="pm-specialty-link" target="_blank" rel="noopener noreferrer">
-                            <span>Consultar este caso</span>
-                            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
-                        </a>
-                    </div>
-
-                    <!-- Card 8 -->
-                    <div class="pm-specialty-card">
-                        <div class="pm-specialty-icon-box">
-                            <i data-lucide="file-question"></i>
-                        </div>
-                        <h3 class="pm-specialty-title">Negativas por Rol da ANS</h3>
-                        <p class="pm-specialty-desc">
-                            Aplicação do entendimento fixado pelo STF (ADI 7.265) que assegura a cobertura de tratamentos e exames fora do rol com respaldo técnico e indicação médica.
-                        </p>
-                        <a href="https://wa.me/5561991521044?text=Ol%C3%A1%21%20O%20plano%20negou%20meu%20exame%20ou%20tratamento%20alegando%20Rol%20da%20ANS" class="pm-specialty-link" target="_blank" rel="noopener noreferrer">
-                            <span>Consultar este caso</span>
-                            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================================================
-             SEÇÃO 3: GUIA PRÁTICO & JURISPRUDÊNCIA (COMO AGIR)
+             SEÇÃO 2: GUIA PRÁTICO & JURISPRUDÊNCIA (COMO AGIR)
              ========================================================================== -->
         <section id="como-agir" class="pm-guide-section">
             <div class="pm-container">
@@ -364,7 +259,7 @@
                             </div>
 
                             <p class="pm-juris-desc">
-                                Em situações de risco à vida ou à integridade do paciente, o Poder Judiciário brasileiro atua com rigor imediato contra negativas arbitrárias. Os juízes entendem que a definição do tratamento mais eficaz cabe ao médico, e não à auditoria do plano.
+                                Em situações de risco à vida ou à integridade do paciente, o Poder Judiciário brasileiro atua com rigor imediato contra negativas arbitrárias.
                             </p>
 
                             <div class="pm-juris-quote">
@@ -380,6 +275,130 @@
                 </div>
             </div>
         </section>
+
+        <!-- ==========================================================================
+             SEÇÃO 3: ÁREAS DE ATUAÇÃO DO ESCRITÓRIO
+             ========================================================================== -->
+        <section id="areas" class="pm-specialties-section">
+            <div class="pm-container">
+                <div class="section-header text-center">
+                    <span class="section-tag">Atuação Multidisciplinar</span>
+                    <h2 class="section-title">Áreas de Atuação do Escritório</h2>
+                    <p class="section-subtitle">
+                        Aliamos rigor técnico, visão estratégica e atendimento humanizado para resguardar seus direitos em diversas frentes da advocacia:
+                    </p>
+                </div>
+
+                <div class="pm-specialties-grid">
+                    <!-- Área 1: Direito à Saúde -->
+                    <div class="pm-specialty-card" id="area-saude">
+                        <div class="pm-specialty-icon-box">
+                            <i data-lucide="activity"></i>
+                        </div>
+                        <h3 class="pm-specialty-title">Direito à Saúde</h3>
+                        <p class="pm-specialty-desc">
+                            Atuação combativa e célere contra negativas abusivas de operadoras de saúde, liberação de cirurgias, medicamentos de alto custo, terapias TEA/ABA, Home Care, UTI e reversão de cancelamentos unilaterais.
+                        </p>
+                        <a href="https://wa.me/5561991521044?text=Ol%C3%A1%21%20Gostaria%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica%20em%20Direito%20%C3%A0%20Sa%C3%BAde" class="pm-specialty-link" target="_blank" rel="noopener noreferrer">
+                            <span>Consultar Direito à Saúde</span>
+                            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                        </a>
+                    </div>
+
+                    <!-- Área 2: Direito Cível -->
+                    <div class="pm-specialty-card" id="area-civel">
+                        <div class="pm-specialty-icon-box">
+                            <i data-lucide="scale"></i>
+                        </div>
+                        <h3 class="pm-specialty-title">Direito Cível & Contratos</h3>
+                        <p class="pm-specialty-desc">
+                            Resolução de conflitos contratuais, ações indenizatórias por danos morais e materiais, responsabilidade civil, cobranças, execução de títulos e anulação de cláusulas contratuais abusivas.
+                        </p>
+                        <a href="https://wa.me/5561991521044?text=Ol%C3%A1%21%20Gostaria%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica%20em%20Direito%20C%C3%ADvel" class="pm-specialty-link" target="_blank" rel="noopener noreferrer">
+                            <span>Consultar Direito Cível</span>
+                            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                        </a>
+                    </div>
+
+                    <!-- Área 3: Família e Sucessões -->
+                    <div class="pm-specialty-card" id="area-familia">
+                        <div class="pm-specialty-icon-box">
+                            <i data-lucide="users"></i>
+                        </div>
+                        <h3 class="pm-specialty-title">Família e Sucessões</h3>
+                        <p class="pm-specialty-desc">
+                            Condução técnica e humanizada de divórcios judiciais e extrajudiciais, partilha patrimonial de bens, pensão alimentícia, guarda, inventários, testamentos e planejamento sucessório.
+                        </p>
+                        <a href="https://wa.me/5561991521044?text=Ol%C3%A1%21%20Gostaria%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica%20em%20Fam%C3%ADlia%20e%20Sucess%C3%B5es" class="pm-specialty-link" target="_blank" rel="noopener noreferrer">
+                            <span>Consultar Família & Sucessões</span>
+                            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                        </a>
+                    </div>
+
+                    <!-- Área 4: Direito Empresarial -->
+                    <div class="pm-specialty-card" id="area-empresarial">
+                        <div class="pm-specialty-icon-box">
+                            <i data-lucide="briefcase"></i>
+                        </div>
+                        <h3 class="pm-specialty-title">Direito Empresarial</h3>
+                        <p class="pm-specialty-desc">
+                            Consultoria jurídica e contencioso societário para empresas, estruturação e revisão de contratos mercantis, governança corporativa, dissolução de sociedades e proteção jurídica do negócio.
+                        </p>
+                        <a href="https://wa.me/5561991521044?text=Ol%C3%A1%21%20Gostaria%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica%20em%20Direito%20Empresarial" class="pm-specialty-link" target="_blank" rel="noopener noreferrer">
+                            <span>Consultar Empresarial</span>
+                            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                        </a>
+                    </div>
+
+                    <!-- Área 5: Direito Tributário -->
+                    <div class="pm-specialty-card" id="area-tributario">
+                        <div class="pm-specialty-icon-box">
+                            <i data-lucide="receipt"></i>
+                        </div>
+                        <h3 class="pm-specialty-title">Direito Tributário</h3>
+                        <p class="pm-specialty-desc">
+                            Defesa estratégica contra autuações e execuções fiscais, impugnações administrativas, recuperação de tributos pagos indevidamente (repetição de indébito) e planejamento fiscal seguro.
+                        </p>
+                        <a href="https://wa.me/5561991521044?text=Ol%C3%A1%21%20Gostaria%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica%20em%20Direito%20Tribut%C3%A1rio" class="pm-specialty-link" target="_blank" rel="noopener noreferrer">
+                            <span>Consultar Tributário</span>
+                            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                        </a>
+                    </div>
+
+                    <!-- Área 6: Direito Criminal -->
+                    <div class="pm-specialty-card" id="area-criminal">
+                        <div class="pm-specialty-icon-box">
+                            <i data-lucide="shield"></i>
+                        </div>
+                        <h3 class="pm-specialty-title">Direito Criminal</h3>
+                        <p class="pm-specialty-desc">
+                            Defesa penal técnica e artesanal em inquéritos policiais, acompanhamento em delegacias, audiências de custódia, pedidos de liberdade e atuação contenciosa em todas as instâncias do Judiciário.
+                        </p>
+                        <a href="https://wa.me/5561991521044?text=Ol%C3%A1%21%20Gostaria%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica%20em%20Direito%20Criminal" class="pm-specialty-link" target="_blank" rel="noopener noreferrer">
+                            <span>Consultar Criminal</span>
+                            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                        </a>
+                    </div>
+
+                    <!-- Área 7: Direito Trabalhista -->
+                    <div class="pm-specialty-card" id="area-trabalhista">
+                        <div class="pm-specialty-icon-box">
+                            <i data-lucide="file-text"></i>
+                        </div>
+                        <h3 class="pm-specialty-title">Direito Trabalhista</h3>
+                        <p class="pm-specialty-desc">
+                            Assessoria preventiva e atuação contenciosa nas relações de trabalho, compliance trabalhista, rescisões complexas e defesa combativa perante a Justiça do Trabalho.
+                        </p>
+                        <a href="https://wa.me/5561991521044?text=Ol%C3%A1%21%20Gostaria%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica%20em%20Direito%20Trabalhista" class="pm-specialty-link" target="_blank" rel="noopener noreferrer">
+                            <span>Consultar Trabalhista</span>
+                            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
 
         <!-- ==========================================================================
              SEÇÃO 4: DETALHAMENTO DOS DIREITOS (ABAS INTERATIVAS)
@@ -617,8 +636,8 @@
                             <li class="pm-scope-item">
                                 <i data-lucide="check-circle-2"></i>
                                 <div class="pm-scope-item-text">
-                                    <strong>Liminar Urgente em Poucas Horas ou Dias</strong>
-                                    <p>Pedido prioritário ao juiz para determinar a liberação imediata da cirurgia, UTI ou medicamento sob pena de multa diária.</p>
+                                    <strong>Pedido de Liminar com Tramitação Urgente</strong>
+                                    <p>Requerimento prioritário ao juiz para determinar a liberação imediata da cirurgia, UTI ou medicamento sob pena de multa diária.</p>
                                 </div>
                             </li>
                             <li class="pm-scope-item">
@@ -709,20 +728,7 @@
                             <img src="assets/foto_amanda_jessica_sofa.jpg" alt="Dra. Amanda Pontes e Dra. Jéssica Miranda no escritório" class="pm-about-img">
                         </div>
 
-                        <div class="pm-about-badges-row">
-                            <div class="pm-about-badge-card">
-                                <strong>100%</strong>
-                                <span>Atuação Digital PJe</span>
-                            </div>
-                            <div class="pm-about-badge-card">
-                                <strong>Ética OAB</strong>
-                                <span>Conformidade Total</span>
-                            </div>
-                            <div class="pm-about-badge-card">
-                                <strong>Humanizado</strong>
-                                <span>Atendimento Próximo</span>
-                            </div>
-                        </div>
+                        
                     </div>
 
                     <!-- Coluna Texto e Bios -->
@@ -752,7 +758,7 @@
                                 </div>
                                 <div class="pm-bio-role">Sócia Fundadora · Direito da Saúde e Contencioso Estratégico</div>
                                 <p class="pm-bio-desc">
-                                    Especialista em Direito Médico, Direito da Saúde Suplementar e Contencioso Estratégico de urgência. Possui sólida vivência na condução de medidas liminares contra planos de saúde em todo o país, garantindo cirurgias, UTI, medicamentos de alto custo e home care, assegurando que o direito à vida prevaleça sobre barreiras corporativas.
+                                    Atuação dedicada ao Direito Médico, Direito da Saúde Suplementar e Contencioso Estratégico de urgência. Possui sólida vivência na condução de medidas liminares contra planos de saúde em todo o país, garantindo cirurgias, UTI, medicamentos de alto custo e home care, assegurando que o direito à vida prevaleça sobre barreiras corporativas.
                                 </p>
                             </div>
                         </div>
@@ -783,7 +789,7 @@
                         </button>
                         <div class="pm-faq-answer" style="max-height: 250px;">
                             <div class="pm-faq-answer-inner">
-                                A Liminar (tutela de urgência) é apreciada pelo juiz logo no início do processo. Em situações de urgência e risco iminente de agravamento da saúde, a decisão costuma ser proferida em prazos que variam de <strong>24 a 72 horas</strong> — e até no mesmo dia em casos gravíssimos de internação ou risco de morte. A ordem fixa prazo imediato de cumprimento para a operadora sob pena de multa diária.
+                                A Liminar (tutela provisória de urgência) é apreciada pelo juiz logo no início do processo com prioridade máxima. Não é possível prometer ou fixar um prazo determinado, uma vez que a análise depende da vara ou plantão judiciário em que a ação for distribuída; no entanto, diante da gravidade e da urgência médica demonstrada, os magistrados costumam analisar o pedido com extrema celeridade para determinar a liberação imediata sob pena de multa diária.
                             </div>
                         </div>
                     </div>
@@ -989,7 +995,7 @@
 
                 <div class="pm-footer-links">
                     <a href="#inicio" class="pm-footer-link">Início</a>
-                    <a href="#casos" class="pm-footer-link">Casos Atendidos</a>
+                    <a href="#areas" class="pm-footer-link">Áreas de Atuação</a>
                     <a href="#como-agir" class="pm-footer-link">Como Agir</a>
                     <a href="#direitos" class="pm-footer-link">Seus Direitos</a>
                     <a href="#sobre" class="pm-footer-link">Quem Somos</a>

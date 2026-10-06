@@ -5,12 +5,12 @@
    ========================================================================== */
 
 :root {
-  /* Cores de Fundo (Dark Luxury) */
-  --pm-bg-deep: #070b14;
-  --pm-bg-surface: #0c1322;
-  --pm-bg-card: #111a2e;
-  --pm-bg-card-hover: #16223b;
-  --pm-bg-elevated: #1a2846;
+  /* Cores de Fundo (Slate Navy Suave & Sofisticado) */
+  --pm-bg-deep: #0e1726;
+  --pm-bg-surface: #142035;
+  --pm-bg-card: #1b2943;
+  --pm-bg-card-hover: #223455;
+  --pm-bg-elevated: #283c61;
   
   /* Acentos Dourados / Champanhe */
   --pm-gold: #c5a059;
@@ -159,7 +159,7 @@ a {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(7, 11, 20, 0.85);
+  background: rgba(14, 23, 38, 0.88);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--pm-border-subtle);
@@ -167,9 +167,9 @@ a {
 }
 
 .pm-header.scrolled {
-  background: rgba(7, 11, 20, 0.95);
-  border-bottom-color: rgba(197, 160, 89, 0.2);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  background: rgba(14, 23, 38, 0.96);
+  border-bottom-color: rgba(197, 160, 89, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .pm-nav-wrapper {
@@ -222,6 +222,80 @@ a {
 
 .pm-nav-link:hover::after {
   width: 100%;
+}
+
+/* Dropdown Menu Áreas de Atuação */
+.pm-nav-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.pm-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.pm-dropdown-icon {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+
+.pm-nav-dropdown:hover .pm-dropdown-icon {
+  transform: rotate(180deg);
+}
+
+.pm-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: #142035;
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  border-radius: var(--pm-radius-md);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+  padding: 10px 0;
+  min-width: 250px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1100;
+  list-style: none;
+}
+
+.pm-nav-dropdown:hover .pm-dropdown-menu,
+.pm-nav-dropdown:focus-within .pm-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.pm-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--pm-silver);
+  transition: var(--pm-transition);
+  white-space: nowrap;
+}
+
+.pm-dropdown-item:hover {
+  background: rgba(197, 160, 89, 0.12);
+  color: var(--pm-gold-light);
+  padding-left: 22px;
+}
+
+.pm-dropdown-item i {
+  color: var(--pm-gold);
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
 }
 
 .pm-header-cta {
@@ -557,7 +631,7 @@ a {
 
 .pm-specialties-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 22px;
 }
 
@@ -696,7 +770,7 @@ a {
 
 /* Card de Jurisprudência */
 .pm-jurisprudence-card {
-  background: linear-gradient(145deg, #10192e 0%, #0d1424 100%);
+  background: linear-gradient(145deg, #1b2943 0%, #152238 100%);
   border: 1px solid rgba(197, 160, 89, 0.35);
   border-radius: var(--pm-radius-lg);
   padding: 36px 30px;
@@ -938,7 +1012,7 @@ a {
 }
 
 .pm-mid-banner-card {
-  background: linear-gradient(135deg, #0e1628 0%, #131e36 50%, #0a1122 100%);
+  background: linear-gradient(135deg, #182740 0%, #1f3150 50%, #152236 100%);
   border: 1.5px solid rgba(197, 160, 89, 0.4);
   border-radius: var(--pm-radius-lg);
   padding: 44px 50px;
@@ -1631,11 +1705,36 @@ a {
     top: 80px;
     left: 0;
     width: 100%;
-    background: rgba(7, 11, 20, 0.98);
+    background: rgba(14, 23, 38, 0.98);
     flex-direction: column;
     padding: 30px;
     border-bottom: 1px solid var(--pm-border-gold);
     display: none;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+  
+  .pm-nav-dropdown {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .pm-dropdown-menu {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    background: rgba(20, 32, 53, 0.7);
+    border-left: 2px solid var(--pm-gold);
+    border-radius: 0;
+    margin: 8px 0 0 10px;
+    padding: 6px 0;
+    width: calc(100% - 10px);
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    visibility: visible;
   }
   
   .pm-nav-menu.active {

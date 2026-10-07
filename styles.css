@@ -9,9 +9,9 @@ html, body {
 */
 
 :root {
-    --bg-primary: #f5ede3;       /* Nude Principal (Tonalidade areia suave) */
-    --bg-secondary: #faf6f0;     /* Nude Claro (Tonalidade creme/off-white) */
-    --bg-tertiary: #ebdcc9;      /* Nude Escuro (Contraste de argila/areia escuro) */
+    --bg-primary: #e8ded2;       /* Nude Principal (Tonalidade areia refinada, um pouco mais escura) */
+    --bg-secondary: #f2e9de;     /* Nude Claro (Tonalidade creme suave) */
+    --bg-tertiary: #dfd2c1;      /* Nude Escuro (Contraste de argila/areia escuro) */
     
     --text-main: #1c1d1f;        /* Preto Grafite */
     --text-muted: #4e5156;       /* Cinza Escuro */

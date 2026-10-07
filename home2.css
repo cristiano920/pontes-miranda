@@ -5,43 +5,43 @@
    ========================================================================== */
 
 :root {
-  /* Cores de Fundo (Light Luxury - Azul Gelo & Off-White Perolado) */
-  --pm-bg-deep: #f0f4f9;
-  --pm-bg-surface: #e5edf6;
-  --pm-bg-card: #ffffff;
-  --pm-bg-card-hover: #f8fafc;
-  --pm-bg-elevated: #ffffff;
+  /* Cores de Fundo (Midnight Navy Luminoso & Sofisticado - Azul Dark Suave) */
+  --pm-bg-deep: #14213d;
+  --pm-bg-surface: #1d2e4e;
+  --pm-bg-card: #24395e;
+  --pm-bg-card-hover: #2c4470;
+  --pm-bg-elevated: #345184;
   
-  /* Acentos Dourados / Champanhe Nobre */
-  --pm-gold: #b8860b;
-  --pm-gold-light: #9a6f12;
-  --pm-gold-dark: #785406;
-  --pm-gold-gradient: linear-gradient(135deg, #c59b27 0%, #9a6f12 100%);
-  --pm-gold-glow: rgba(184, 134, 11, 0.2);
+  /* Acentos Dourados / Champanhe */
+  --pm-gold: #c5a059;
+  --pm-gold-light: #dfba73;
+  --pm-gold-dark: #9e7d3b;
+  --pm-gold-gradient: linear-gradient(135deg, #dfba73 0%, #c5a059 50%, #9e7d3b 100%);
+  --pm-gold-glow: rgba(197, 160, 89, 0.25);
 
   /* Acentos Prata / Neutros */
-  --pm-silver: #475569;
-  --pm-silver-light: #1e293b;
+  --pm-silver: #cbd5e1;
+  --pm-silver-light: #f1f5f9;
   --pm-silver-dark: #64748b;
   
-  /* Textos de Alta Legibilidade e Nobreza */
-  --pm-text-heading: #0a1629;
-  --pm-text-body: #334155;
+  /* Textos */
+  --pm-text-heading: #ffffff;
+  --pm-text-body: #94a3b8;
   --pm-text-muted: #64748b;
-  --pm-text-light: #0a1629;
+  --pm-text-light: #e2e8f0;
   
   /* WhatsApp & Ações */
   --pm-wa-green: #25D366;
   --pm-wa-green-hover: #1ebd57;
   --pm-wa-green-glow: rgba(37, 211, 102, 0.3);
   
-  /* Bordas e Sombras Suaves */
-  --pm-border-subtle: rgba(10, 22, 41, 0.08);
-  --pm-border-gold: rgba(184, 134, 11, 0.35);
-  --pm-shadow-sm: 0 4px 12px rgba(10, 22, 41, 0.05);
-  --pm-shadow-md: 0 8px 24px rgba(10, 22, 41, 0.08);
-  --pm-shadow-lg: 0 16px 40px rgba(10, 22, 41, 0.12);
-  --pm-shadow-gold: 0 8px 30px rgba(184, 134, 11, 0.15);
+  /* Bordas e Sombras */
+  --pm-border-subtle: rgba(255, 255, 255, 0.08);
+  --pm-border-gold: rgba(197, 160, 89, 0.35);
+  --pm-shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --pm-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --pm-shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.5);
+  --pm-shadow-gold: 0 8px 32px rgba(197, 160, 89, 0.15);
 
   /* Fontes */
   --pm-font-title: 'Playfair Display', Georgia, serif;
@@ -159,7 +159,7 @@ a {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(240, 244, 249, 0.92);
+  background: rgba(20, 33, 61, 0.9);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--pm-border-subtle);
@@ -167,9 +167,9 @@ a {
 }
 
 .pm-header.scrolled {
-  background: rgba(255, 255, 255, 0.96);
-  border-bottom-color: rgba(184, 134, 11, 0.25);
-  box-shadow: 0 8px 24px rgba(10, 22, 41, 0.08);
+  background: rgba(20, 33, 61, 0.98);
+  border-bottom-color: rgba(197, 160, 89, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .pm-nav-wrapper {
@@ -188,8 +188,6 @@ a {
   height: 48px;
   width: auto;
   object-fit: contain;
-  filter: brightness(0.2) contrast(1.15);
-  transition: var(--pm-transition);
 }
 
 .pm-nav-menu {
@@ -200,8 +198,8 @@ a {
 
 .pm-nav-link {
   font-size: 0.92rem;
-  font-weight: 600;
-  color: #1e293b;
+  font-weight: 500;
+  color: var(--pm-silver);
   transition: var(--pm-transition);
   position: relative;
   padding: 6px 0;
@@ -255,10 +253,10 @@ a {
   top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(8px);
-  background: #ffffff;
-  border: 1px solid rgba(184, 134, 11, 0.25);
+  background: #142035;
+  border: 1px solid rgba(197, 160, 89, 0.3);
   border-radius: var(--pm-radius-md);
-  box-shadow: 0 16px 36px rgba(10, 22, 41, 0.12);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
   padding: 10px 0;
   min-width: 250px;
   opacity: 0;
@@ -282,14 +280,14 @@ a {
   padding: 10px 18px;
   font-size: 0.88rem;
   font-weight: 500;
-  color: #334155;
+  color: var(--pm-silver);
   transition: var(--pm-transition);
   white-space: nowrap;
 }
 
 .pm-dropdown-item:hover {
-  background: rgba(184, 134, 11, 0.08);
-  color: var(--pm-gold);
+  background: rgba(197, 160, 89, 0.12);
+  color: var(--pm-gold-light);
   padding-left: 22px;
 }
 
@@ -325,7 +323,7 @@ a {
   display: none;
   background: transparent;
   border: none;
-  color: #0a1629;
+  color: var(--pm-silver-light);
   cursor: pointer;
   padding: 8px;
 }
@@ -340,8 +338,8 @@ a {
   min-height: calc(100vh - 40px);
   display: flex;
   align-items: center;
-  background: radial-gradient(circle at 80% 20%, rgba(184, 134, 11, 0.07) 0%, transparent 60%),
-              radial-gradient(circle at 10% 70%, rgba(215, 230, 248, 0.6) 0%, transparent 70%),
+  background: radial-gradient(circle at 80% 20%, rgba(197, 160, 89, 0.08) 0%, transparent 60%),
+              radial-gradient(circle at 10% 70%, rgba(17, 26, 46, 0.8) 0%, transparent 70%),
               var(--pm-bg-deep);
   overflow: hidden;
 }
@@ -400,11 +398,11 @@ a {
   align-items: center;
   gap: 18px;
   padding: 10px 18px;
-  background: #ffffff;
+  background: rgba(17, 26, 46, 0.75);
   border: 1px solid var(--pm-border-subtle);
   border-radius: var(--pm-radius-md);
   margin-bottom: 22px;
-  box-shadow: var(--pm-shadow-sm);
+  backdrop-filter: blur(8px);
 }
 
 .pm-metric-item {
@@ -430,7 +428,7 @@ a {
 .pm-metric-sep {
   width: 1px;
   height: 28px;
-  background: rgba(10, 22, 41, 0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* CTAs Duplos */
@@ -470,22 +468,20 @@ a {
   justify-content: center;
   gap: 8px;
   padding: 12px 22px;
-  background: #ffffff;
-  border: 1.5px solid rgba(184, 134, 11, 0.4);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(197, 160, 89, 0.4);
   color: var(--pm-gold-light);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.86rem;
   border-radius: var(--pm-radius-sm);
   transition: var(--pm-transition);
-  box-shadow: var(--pm-shadow-sm);
 }
 
 .pm-btn-secondary:hover {
-  background: var(--pm-gold-light);
+  background: rgba(197, 160, 89, 0.1);
   border-color: var(--pm-gold-light);
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(184, 134, 11, 0.25);
 }
 
 .pm-hero-microcopy {
@@ -548,14 +544,16 @@ a {
 }
 
 .pm-photo-badge-names {
-  font-size: 0.84rem;
-  font-weight: 600;
-  color: var(--pm-text-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff !important;
+  letter-spacing: 0.01em;
 }
 
 .pm-photo-badge-sub {
-  font-size: 0.7rem;
-  color: var(--pm-gold-light);
+  font-size: 0.72rem;
+  color: #dfba73;
+  font-weight: 500;
 }
 
 .pm-photo-badge-icon {
@@ -648,7 +646,6 @@ a {
   flex-direction: column;
   transition: var(--pm-transition);
   position: relative;
-  box-shadow: var(--pm-shadow-sm);
 }
 
 .pm-specialty-card:hover {
@@ -662,8 +659,8 @@ a {
   width: 52px;
   height: 52px;
   border-radius: 12px;
-  background: rgba(184, 134, 11, 0.08);
-  border: 1px solid rgba(184, 134, 11, 0.2);
+  background: rgba(197, 160, 89, 0.12);
+  border: 1px solid rgba(197, 160, 89, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -674,7 +671,7 @@ a {
 
 .pm-specialty-card:hover .pm-specialty-icon-box {
   background: var(--pm-gold-gradient);
-  color: #ffffff;
+  color: #070b14;
 }
 
 .pm-specialty-title {
@@ -740,13 +737,185 @@ a {
 }
 
 .pm-step-card:hover {
+  border-color: rgba(197, 160, 89, 0.4);
   background: var(--pm-bg-card-hover);
-  border-color: rgba(184, 134, 11, 0.35);
-  box-shadow: var(--pm-shadow-md);
+  transform: translateX(4px);
+}
+
+.pm-step-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(197, 160, 89, 0.15);
+  border: 1px solid var(--pm-gold);
+  color: var(--pm-gold-light);
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pm-step-content h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--pm-text-heading);
+}
+
+.pm-step-content p {
+  font-size: 0.92rem;
+  color: var(--pm-text-body);
+  line-height: 1.55;
+}
+
+/* Card de Jurisprudência */
+.pm-jurisprudence-card {
+  background: linear-gradient(145deg, #1b2943 0%, #152238 100%);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  border-radius: var(--pm-radius-lg);
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--pm-shadow-md), var(--pm-shadow-gold);
+  position: relative;
+  overflow: hidden;
+}
+
+.pm-jurisprudence-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.12) 0%, transparent 70%);
+}
+
+.pm-juris-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--pm-gold-light);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.pm-juris-stat {
+  margin: 18px 0;
+}
+
+.pm-juris-stat-num {
+  font-family: var(--pm-font-title);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--pm-gold-light);
+  line-height: 1;
+}
+
+.pm-juris-stat-label {
+  font-size: 1.05rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.pm-juris-desc {
+  font-size: 0.93rem;
+  color: var(--pm-silver);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.pm-juris-quote {
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.25);
+  border-left: 3px solid var(--pm-gold);
+  border-radius: 0 var(--pm-radius-sm) var(--pm-radius-sm) 0;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--pm-silver-light);
+  margin-bottom: 26px;
+}
+
+.pm-juris-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 24px;
+  background: var(--pm-gold-gradient);
+  color: #070b14;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: var(--pm-radius-sm);
+  transition: var(--pm-transition);
+}
+
+.pm-juris-cta:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   SEÇÃO 4: ABAS INTERATIVAS DE DETALHAMENTO DOS DIREITOS
+   ========================================================================== */
+.pm-tabs-section {
+  padding: 95px 0;
+  background: var(--pm-bg-surface);
+  border-top: 1px solid var(--pm-border-subtle);
+  border-bottom: 1px solid var(--pm-border-subtle);
+}
+
+.pm-tabs-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.pm-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  background: var(--pm-bg-card);
+  border: 1px solid var(--pm-border-subtle);
+  border-radius: var(--pm-radius-pill);
+  color: var(--pm-silver);
+  font-family: var(--pm-font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--pm-transition);
+}
+
+.pm-tab-btn i {
+  color: var(--pm-gold-light);
+}
+
+.pm-tab-btn:hover {
+  background: var(--pm-bg-card-hover);
+  border-color: rgba(197, 160, 89, 0.4);
+  color: #ffffff;
+}
+
+.pm-tab-btn.active {
+  background: var(--pm-gold-gradient);
+  border-color: transparent;
+  color: #070b14;
+  box-shadow: 0 4px 20px var(--pm-gold-glow);
 }
 
 .pm-tab-btn.active i {
-  color: #ffffff;
+  color: #070b14;
 }
 
 .pm-tab-pane {
@@ -845,11 +1014,11 @@ a {
 }
 
 .pm-mid-banner-card {
-  background: linear-gradient(135deg, #0e1c34 0%, #162846 50%, #0d1a30 100%);
+  background: linear-gradient(135deg, #182740 0%, #1f3150 50%, #152236 100%);
   border: 1.5px solid rgba(197, 160, 89, 0.4);
   border-radius: var(--pm-radius-lg);
   padding: 44px 50px;
-  box-shadow: 0 16px 45px rgba(10, 22, 41, 0.2), 0 0 40px rgba(197, 160, 89, 0.12);
+  box-shadow: var(--pm-shadow-lg), 0 0 40px rgba(197, 160, 89, 0.12);
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   gap: 40px;
@@ -888,7 +1057,7 @@ a {
 .pm-banner-author-info h3 {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--pm-text-heading);
   margin-bottom: 4px;
 }
 
@@ -923,12 +1092,11 @@ a {
   font-size: 1.9rem;
   font-weight: 600;
   line-height: 1.25;
-  color: #ffffff;
 }
 
 .pm-banner-action-col p {
   font-size: 0.98rem;
-  color: #cbd5e1;
+  color: var(--pm-silver);
   line-height: 1.6;
 }
 
@@ -1180,9 +1348,9 @@ a {
 }
 
 .pm-faq-item.active {
-  border-color: rgba(184, 134, 11, 0.4);
-  background: #ffffff;
-  box-shadow: 0 4px 20px rgba(10, 22, 41, 0.06);
+  border-color: rgba(197, 160, 89, 0.4);
+  background: var(--pm-bg-card-hover);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .pm-faq-question {
@@ -1226,12 +1394,11 @@ a {
 .pm-faq-answer-inner {
   padding: 0 26px 24px;
   font-size: 0.95rem;
-  color: var(--pm-text-body);
+  color: var(--pm-silver);
   line-height: 1.7;
-  border-top: 1px solid rgba(10, 22, 41, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
   margin-top: 4px;
   padding-top: 16px;
-  background: #f8fafc;
 }
 
 /* ==========================================================================
@@ -1345,10 +1512,10 @@ a {
 .pm-form-group textarea {
   width: 100%;
   padding: 13px 16px;
-  background: #f8fafc;
-  border: 1px solid rgba(10, 22, 41, 0.15);
+  background: rgba(7, 11, 20, 0.6);
+  border: 1px solid var(--pm-border-subtle);
   border-radius: var(--pm-radius-sm);
-  color: #0a1629;
+  color: #ffffff;
   font-family: var(--pm-font-body);
   font-size: 0.95rem;
   transition: var(--pm-transition);
@@ -1359,13 +1526,13 @@ a {
 .pm-form-group textarea:focus {
   outline: none;
   border-color: var(--pm-gold);
-  background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.15);
+  background: rgba(7, 11, 20, 0.9);
+  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);
 }
 
 .pm-form-group select option {
-  background: #ffffff;
-  color: #0a1629;
+  background: var(--pm-bg-card);
+  color: #ffffff;
 }
 
 .pm-form-error {
@@ -1540,11 +1707,10 @@ a {
     top: 80px;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba(14, 23, 38, 0.98);
     flex-direction: column;
     padding: 30px;
-    border-bottom: 1px solid rgba(184, 134, 11, 0.3);
-    box-shadow: 0 12px 30px rgba(10, 22, 41, 0.12);
+    border-bottom: 1px solid var(--pm-border-gold);
     display: none;
     max-height: calc(100vh - 80px);
     overflow-y: auto;
@@ -1561,7 +1727,7 @@ a {
     transform: none;
     box-shadow: none;
     border: none;
-    background: rgba(240, 244, 249, 0.95);
+    background: rgba(20, 32, 53, 0.7);
     border-left: 2px solid var(--pm-gold);
     border-radius: 0;
     margin: 8px 0 0 10px;

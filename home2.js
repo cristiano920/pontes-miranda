@@ -1,28 +1,32 @@
 import { supabase, saveLead } from './supabase.js';
 
-// Expose Supabase client globally if needed
+// Expor client caso necessário
 window.supabase = supabase;
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Inicializar ícones Lucide
+    // 1. Inicializar ícones Lucide
     if (window.lucide) {
         lucide.createIcons();
     }
 
     initNavbar();
     initMobileMenu();
-    initSpecialtyTabs();
+    initDropdowns();
+    initAreaLinksInteractivity();
     initFaqAccordion();
     initContactForm();
+    initPrivacyModal();
 });
 
-// 1. Navbar Sticky no Scroll
+// ==========================================================================
+// 1. NAVBAR STICKY NO SCROLL
+// ==========================================================================
 function initNavbar() {
     const header = document.querySelector('.pm-header');
     if (!header) return;
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 40) {
+        if (window.scrollY > 25) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
@@ -30,13 +34,13 @@ function initNavbar() {
     });
 }
 
-// 2. Menu Mobile Toggle & Dropdown
+// ==========================================================================
+// 2. MENU MOBILE
+// ==========================================================================
 function initMobileMenu() {
     const mobileToggle = document.getElementById('pmMobileToggle');
     const navMenu = document.getElementById('pmNavMenu');
     const navLinks = document.querySelectorAll('.pm-nav-link:not(.pm-dropdown-toggle), .pm-dropdown-item');
-    const dropdownToggle = document.querySelector('.pm-dropdown-toggle');
-    const dropdownContainer = document.querySelector('.pm-nav-dropdown');
 
     if (!mobileToggle || !navMenu) return;
 
@@ -44,26 +48,16 @@ function initMobileMenu() {
         navMenu.classList.toggle('active');
         const icon = mobileToggle.querySelector('i');
         if (navMenu.classList.contains('active')) {
-            icon.setAttribute('data-lucide', 'x');
+            if (icon) icon.setAttribute('data-lucide', 'x');
         } else {
-            icon.setAttribute('data-lucide', 'menu');
+            if (icon) icon.setAttribute('data-lucide', 'menu');
         }
         if (window.lucide) lucide.createIcons();
     });
 
-    if (dropdownToggle && dropdownContainer) {
-        dropdownToggle.addEventListener('click', (e) => {
-            if (window.innerWidth <= 860) {
-                e.preventDefault();
-                dropdownContainer.classList.toggle('active-mobile');
-            }
-        });
-    }
-
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
-            if (dropdownContainer) dropdownContainer.classList.remove('active-mobile');
             const icon = mobileToggle.querySelector('i');
             if (icon) {
                 icon.setAttribute('data-lucide', 'menu');
@@ -73,30 +67,82 @@ function initMobileMenu() {
     });
 }
 
-// 3. Abas Interativas (Seção 4: Detalhamento dos Direitos)
-function initSpecialtyTabs() {
-    const tabButtons = document.querySelectorAll('.pm-tab-btn');
-    const tabPanes = document.querySelectorAll('.pm-tab-pane');
+// ==========================================================================
+// 3. DROPDOWNS (HEADER) & DROPUP (RODAPÉ)
+// ==========================================================================
+function initDropdowns() {
+    // Dropdown Header
+    const headerDropdown = document.querySelector('.pm-nav-dropdown');
+    const headerToggle = document.querySelector('.pm-nav-dropdown .pm-dropdown-toggle');
 
-    if (!tabButtons.length || !tabPanes.length) return;
+    if (headerDropdown && headerToggle) {
+        headerToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            headerDropdown.classList.toggle('active');
+        });
+    }
 
-    tabButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const targetId = btn.getAttribute('data-target');
+    // Dropup Rodapé
+    const footerDropup = document.querySelector('.pm-footer-dropup');
+    const footerToggle = document.querySelector('.pm-footer-dropup .pm-dropup-toggle');
 
-            tabButtons.forEach(b => b.classList.remove('active'));
-            tabPanes.forEach(pane => pane.classList.remove('active'));
+    if (footerDropup && footerToggle) {
+        footerToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            footerDropup.classList.toggle('active');
+        });
+    }
 
-            btn.classList.add('active');
-            const targetPane = document.getElementById(targetId);
-            if (targetPane) {
-                targetPane.classList.add('active');
+    // Fechar ao clicar fora
+    document.addEventListener('click', (e) => {
+        if (headerDropdown && !headerDropdown.contains(e.target)) {
+            headerDropdown.classList.remove('active');
+        }
+        if (footerDropup && !footerDropup.contains(e.target)) {
+            footerDropup.classList.remove('active');
+        }
+    });
+}
+
+// ==========================================================================
+// 4. LINKS DE ÁREAS (CARDS, DROPDOWN, DROPUP, BOTÕES) -> FORMULÁRIO DE CONTATO
+// ==========================================================================
+function initAreaLinksInteractivity() {
+    const areaLinks = document.querySelectorAll('[data-area]');
+    const serviceSelect = document.getElementById('pmService');
+
+    areaLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const targetArea = link.getAttribute('data-area');
+            if (targetArea && serviceSelect) {
+                for (let i = 0; i < serviceSelect.options.length; i++) {
+                    if (serviceSelect.options[i].value === targetArea) {
+                        serviceSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            // Scroll suave até o contato
+            const contactSection = document.getElementById('contato');
+            if (contactSection) {
+                e.preventDefault();
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+
+                const nameInput = document.getElementById('pmName');
+                if (nameInput) {
+                    setTimeout(() => nameInput.focus(), 600);
+                }
             }
         });
     });
 }
 
-// 4. FAQ Acordeão Inteligente
+// ==========================================================================
+// 5. FAQ ACORDEÃO INTERATIVO
+// ==========================================================================
 function initFaqAccordion() {
     const faqQuestions = document.querySelectorAll('.pm-faq-question');
 
@@ -106,14 +152,14 @@ function initFaqAccordion() {
             const answer = faqItem.querySelector('.pm-faq-answer');
             const isOpen = faqItem.classList.contains('active');
 
-            // Fechar todos os outros
+            // Fechar outros itens
             document.querySelectorAll('.pm-faq-item').forEach(item => {
                 item.classList.remove('active');
                 const ans = item.querySelector('.pm-faq-answer');
                 if (ans) ans.style.maxHeight = '0px';
             });
 
-            // Abrir o clicado caso não estivesse aberto
+            // Se não estava aberto, abre este
             if (!isOpen) {
                 faqItem.classList.add('active');
                 answer.style.maxHeight = answer.scrollHeight + 'px';
@@ -122,7 +168,9 @@ function initFaqAccordion() {
     });
 }
 
-// 5. Formulário de Contato e Envio para WhatsApp
+// ==========================================================================
+// 6. FORMULÁRIO DE CONTATO (SUPABASE + WHATSAPP)
+// ==========================================================================
 function initContactForm() {
     const form = document.getElementById('pmLeadForm');
     const phoneInput = document.getElementById('pmWhatsapp');
@@ -179,7 +227,7 @@ function initContactForm() {
             }
         }
 
-        // Validação Serviço
+        // Validação Assunto / Serviço
         if (service && service.value === '') {
             service.closest('.pm-form-group').classList.add('invalid');
             isValid = false;
@@ -196,29 +244,65 @@ function initContactForm() {
                 nome: name ? name.value.trim() : '',
                 whatsapp: whatsapp ? whatsapp.value.trim() : '',
                 email: (email && email.value.trim()) ? email.value.trim() : 'Não informado',
-                servico: service ? service.value : 'Negativa de Plano de Saúde',
+                servico: service ? service.value : 'Geral',
                 mensagem: message ? message.value.trim() : ''
             };
 
-            // Salvar no Supabase
+            // Salvar no Supabase em segundo plano
             saveLead(leadData).catch(err => console.error('Erro ao registrar no Supabase:', err));
 
-            // Redirecionar ao WhatsApp
+            // Disparar evento para GTM se disponível
+            if (window.dataLayer) {
+                window.dataLayer.push({
+                    event: 'contact_form_submission',
+                    lead_service: leadData.servico
+                });
+            }
+
+            // Montar texto estruturado do WhatsApp
             const targetPhone = '5561991521044';
-            let messageText = `Olá! Vim pelo site da Pontes Miranda e preciso de orientação jurídica para negativa do plano de saúde.\n\n`;
-            messageText += `*DADOS DO CASO:*\n`;
+            let messageText = `Olá! Gostaria de uma orientação jurídica com a Pontes Miranda Advogados.\n\n`;
+            messageText += `*DADOS PARA CONTATO:*\n`;
             messageText += `• *Nome:* ${leadData.nome}\n`;
-            messageText += `• *WhatsApp:* ${leadData.whatsapp}\n`;
+            messageText += `• *Telefone:* ${leadData.whatsapp}\n`;
             if (leadData.email !== 'Não informado') {
                 messageText += `• *E-mail:* ${leadData.email}\n`;
             }
-            messageText += `• *Tipo de Negativa:* ${leadData.servico}\n\n`;
-            messageText += `*RESUMO DA SITUAÇÃO:*\n${leadData.mensagem}`;
+            messageText += `• *Assunto:* ${leadData.servico}\n\n`;
+            messageText += `*RESUMO DO CASO:*\n${leadData.mensagem}`;
 
             const encodedMessage = encodeURIComponent(messageText);
             const waUrl = `https://wa.me/${targetPhone}?text=${encodedMessage}`;
 
             window.open(waUrl, '_blank');
+        }
+    });
+}
+
+// ==========================================================================
+// 7. MODAL DE AVISO DE PRIVACIDADE (LGPD)
+// ==========================================================================
+function initPrivacyModal() {
+    const openBtn = document.getElementById('openPrivacyModal');
+    const modal = document.getElementById('pmPrivacyModal');
+    const closeBtn = document.getElementById('closePrivacyModal');
+
+    if (!openBtn || !modal) return;
+
+    openBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.add('active');
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+    }
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
         }
     });
 }
